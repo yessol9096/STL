@@ -1,0 +1,6563 @@
+
+
+
+==============================
+Mon Apr 10 14:01:03 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.10 목 (월56목56) - (6주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 숫자한계
+// data traits
+//----------------------------------------------------
+
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+
+int main()
+{
+	// 가장 큰 정수의 값을 출력해 주세요.
+	int n = 0x7FFFFFFF;
+	cout << n << endl;
+	save();
+}
+
+
+==============================
+Mon Apr 10 14:02:47 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.10 목 (월56목56) - (6주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 숫자한계
+// data traits
+//----------------------------------------------------
+
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+
+int main()
+{
+	// 가장 큰 정수의 값을 출력해 주세요.
+	int n = 0x7FFFFFFF + 1;
+	cout << n << endl; // 가장작은수
+	save();
+}
+
+
+==============================
+Mon Apr 10 14:05:56 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.10 목 (월56목56) - (6주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 숫자한계
+// data traits
+//----------------------------------------------------
+
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+
+int main()
+{
+	// 가장 큰 정수의 값을 출력해 주세요.
+	
+	cout << numeric_limits<int>::max() << endl;
+	save();
+}
+
+
+==============================
+Mon Apr 10 14:08:39 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.10 목 (월56목56) - (6주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 숫자한계
+// data traits
+//----------------------------------------------------
+
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+
+int main()
+{
+	// 가장 큰 정수의 값을 출력해 주세요.
+	
+	cout << numeric_limits<int>::radix << endl;
+	save();
+}
+
+
+==============================
+Mon Apr 10 14:46:07 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.10 목 (월56목56) - (6주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 숫자한계
+// data traits
+//----------------------------------------------------
+
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+template <class T>
+void f(T n)
+{
+	if (is_pod<T>::value)
+		cout << "T는 plain old data" << endl;
+	else
+		cout << "T는 값" << endl;
+}
+
+class Model {};
+int main()
+{
+	int n{ 410 };
+
+	// 함수 템플릿 f로 만들어지는
+	// 템플릿 함수 f는 n의 값을 출력한다
+	f(n);
+	int* p = &n;
+	f(p);	// 주소가 전달될때는 *p의 값을 찍고 싶다
+	Model d;
+	f(d);
+	save();
+}
+
+
+==============================
+Mon Apr 10 14:46:21 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.10 목 (월56목56) - (6주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 숫자한계
+// data traits
+//----------------------------------------------------
+
+#include <iostream>
+#include "save.h"
+using namespace std;
+
+template <class T>
+void f(T n)
+{
+	if (is_class<T>::value)
+		cout << "T는 class" << endl;
+	else
+		cout << "T는 값" << endl;
+}
+
+class Model {};
+int main()
+{
+	int n{ 410 };
+
+	// 함수 템플릿 f로 만들어지는
+	// 템플릿 함수 f는 n의 값을 출력한다
+	f(n);
+	int* p = &n;
+	f(p);	// 주소가 전달될때는 *p의 값을 찍고 싶다
+	Model d;
+	f(d);
+	save();
+}
+
+
+==============================
+Thu Apr 13 14:39:47 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.10 목 (월56목56) - (6주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 숫자한계
+// data traits
+//----------------------------------------------------
+
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+int main()
+{
+	set<int> s;
+
+	while (true) {
+		s.insert(rand());
+		if (s.size() == 20000)
+			break;
+	}
+	for (int d : s)
+		cout << d << endl;
+
+	save();
+}
+
+
+
+==============================
+Thu Apr 13 14:48:39 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.10 목 (월56목56) - (6주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 숫자한계
+// data traits
+//----------------------------------------------------
+
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+int main()
+{
+	multiset<int> s;
+
+	while (true) {
+		s.insert(rand()%10);
+		if (s.size() == 10)
+			break;
+	}
+	for (int d : s)
+		cout << d << endl;
+
+	save();
+}
+
+
+
+
+
+
+
+
+
+==============================
+Mon Apr 17 13:50:40 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.10 목 (월56목56) - (6주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+
+#include <iostream>
+#include <vector>
+#include <deque>
+#include <list>
+#include "save.h"
+using namespace std;
+
+int main()
+{
+	// 벡터
+	// 벡터에 정수들을 몇 개 넣어보고 출력해 봅니다.
+	
+	vector<int> v;
+	v.reserve(10000);				// 미리 재할당
+	for(int i = 0; i < 10000; ++i)
+	v.push_back(i);
+	cout << v.size() << endl;		// 원소 갯수
+	cout << v.data() << endl;		// HEAP에 할당된 테이터 시작위치
+	cout << v.capacity() << endl;	// 재할당없이 닿을 수 있는 원소의 수
+
+	// 덱 여습
+	// 덱에 정수들을 1~6 개 넣어보고 출력해 봅니다.
+
+	//deque<int> d;
+	//for (int i = 1; i < 7; ++i)
+	//	d.push_front(i);
+	//// 메모리가 연속된 컨테이너에서는 []연산자로 원소에 접근가능	
+	//// for (int i = 0; i < 6; ++i)
+	//// cout << d[i] << endl;
+
+	//// ((모든)) 컨테이너는 자신의 원소에 접근할 수 있는 반복자라는 인터페이스를 제공한다.
+
+	///*deque<int>::const_iterator i = d.cbegin();
+	//while (i != d.cend()) {
+	//	cout << *i << endl;
+	//	++i;
+	//}*/
+
+	//// stl에서 많이 쓰는 프로그램 반복절
+	////							< 메모리가 붙었을때만 사용할수 있음 일반적으로 != 쓴다.
+	//for (auto i = d.cbegin(); i != d.cend(); ++i) //뒤에다 i++이는 붙히지 않는다.
+	//	cout << *i << endl;
+
+	// list로만 바꾸면 사용가능.
+	list<int> d;
+	for (int i = 1; i < 7; ++i)
+		d.push_front(i);
+	for (auto i = d.cbegin(); i != d.cend(); ++i) 
+		cout << *i << endl;
+
+	save();
+}
+
+
+
+==============================
+Mon Apr 17 13:50:43 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.10 목 (월56목56) - (6주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+
+#include <iostream>
+#include <vector>
+#include <deque>
+#include <list>
+#include "save.h"
+using namespace std;
+
+int main()
+{
+	// 벡터
+	// 벡터에 정수들을 몇 개 넣어보고 출력해 봅니다.
+	
+	vector<int> v;
+	v.reserve(10000);				// 미리 재할당
+	for(int i = 0; i < 10000; ++i)
+	v.push_back(i);
+	cout << v.size() << endl;		// 원소 갯수
+	cout << v.data() << endl;		// HEAP에 할당된 테이터 시작위치
+	cout << v.capacity() << endl;	// 재할당없이 닿을 수 있는 원소의 수
+
+	// 덱 여습
+	// 덱에 정수들을 1~6 개 넣어보고 출력해 봅니다.
+
+	//deque<int> d;
+	//for (int i = 1; i < 7; ++i)
+	//	d.push_front(i);
+	//// 메모리가 연속된 컨테이너에서는 []연산자로 원소에 접근가능	
+	//// for (int i = 0; i < 6; ++i)
+	//// cout << d[i] << endl;
+
+	//// ((모든)) 컨테이너는 자신의 원소에 접근할 수 있는 반복자라는 인터페이스를 제공한다.
+
+	///*deque<int>::const_iterator i = d.cbegin();
+	//while (i != d.cend()) {
+	//	cout << *i << endl;
+	//	++i;
+	//}*/
+
+	//// stl에서 많이 쓰는 프로그램 반복절
+	////							< 메모리가 붙었을때만 사용할수 있음 일반적으로 != 쓴다.
+	//for (auto i = d.cbegin(); i != d.cend(); ++i) //뒤에다 i++이는 붙히지 않는다.
+	//	cout << *i << endl;
+
+	// list로만 바꾸면 사용가능.
+	list<int> d;
+	for (int i = 1; i < 7; ++i)
+		d.push_front(i);
+	for (auto i = d.cbegin(); i != d.cend(); ++i) 
+		cout << *i << endl;
+
+	save();
+}
+
+
+
+==============================
+Mon Apr 17 14:05:19 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.10 목 (월56목56) - (6주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+
+#include <iostream>
+#include <vector>
+#include <list>
+#include "save.h"
+using namespace std;
+
+int main()
+{
+	// 리스트에 'a' - 'z'를 넣고 출력해보자 p 221
+	
+	list<char> d;
+	
+	for (char c = 'a' ; c <= 'z' ; ++c)
+		d.insert(d.end(),c);
+
+	for (char c : d)
+		cout << c << endl;
+
+
+
+	save();
+}
+
+
+
+==============================
+Mon Apr 17 14:15:00 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.10 목 (월56목56) - (6주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+
+#include <iostream>
+#include <array>
+#include "save.h"
+using namespace std;
+class Model {
+	int n;
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+};
+
+int main()
+{
+	// array
+
+	array<Model, 10> a;	// array 가 stack에 저장 p219
+	
+	cout << sizeof(a) << endl;
+
+	save();
+}
+
+
+
+==============================
+Mon Apr 17 14:15:43 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.10 목 (월56목56) - (6주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+
+#include <iostream>
+#include <array>
+#include "save.h"
+using namespace std;
+class Model {
+	int n;
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+};
+
+int main()
+{
+	// array
+
+	array<int, 10> a{};	// int값으로 초기화
+
+	for (int d : a)
+		cout << d;
+	cout << sizeof(a) << endl;
+
+	save();
+}
+
+
+
+==============================
+Mon Apr 17 14:44:41 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.10 목 (월56목56) - (6주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+
+#include <iostream>
+#include <set>
+#include <string>
+#include <iterator>
+#include <algorithm>
+#include <fstream>
+#include "save.h"
+using namespace std;
+class Model {
+	int n;
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+};
+
+int main()
+{
+	set<string> s;
+
+	// 현재 "소스.cpp" 파일을 읽어 단어 정렬하여 출력하라.
+	// copy(파일입력시작 어디서, 파일입력끝 어디까지, 셋으로 어디로);
+	ifstream in("소스.cpp");
+	// copy(키보드입력시작 어디서, 키보드입력끝 어디까지, 셋으로 어디로);
+	/*copy(istream_iterator<string>(cin), 
+		istream_iterator<string>(),
+		inserter(s, s.begin())
+		);*/
+	
+	for (string s : s)
+		cout << s << "\t";
+	save();
+}
+
+
+
+==============================
+Mon Apr 17 14:45:01 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.10 목 (월56목56) - (6주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+
+#include <iostream>
+#include <set>
+#include <string>
+#include <iterator>
+#include <algorithm>
+#include <fstream>
+#include "save.h"
+using namespace std;
+class Model {
+	int n;
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+};
+
+int main()
+{
+	set<string> s;
+
+	// 현재 "소스.cpp" 파일을 읽어 단어 정렬하여 출력하라.
+	// copy(파일입력시작 어디서, 파일입력끝 어디까지, 셋으로 어디로);
+	ifstream in("소스.cpp");
+	// copy(키보드입력시작 어디서, 키보드입력끝 어디까지, 셋으로 어디로);
+	copy(istream_iterator<string>(in), 
+		istream_iterator<string>(),
+		inserter(s, s.begin())
+		);
+	
+	for (string s : s)
+		cout << s << "\t";
+	save();
+}
+
+
+
+==============================
+Mon Apr 17 14:47:43 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.10 목 (월56목56) - (6주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+
+#include <iostream>
+#include <set>
+#include <string>
+#include <iterator>
+#include <algorithm>
+#include <fstream>
+#include "save.h"
+using namespace std;
+class Model {
+	int n;
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+};
+
+int main()
+{
+	multiset<string> s;
+
+	// 현재 "소스.cpp" 파일을 읽어 단어 정렬하여 출력하라.
+	// copy(파일입력시작 어디서, 파일입력끝 어디까지, 셋으로 어디로);
+	ifstream in("소스.cpp");
+	// copy(키보드입력시작 어디서, 키보드입력끝 어디까지, 셋으로 어디로);
+	copy(istream_iterator<string>(in), 
+		istream_iterator<string>(),
+		inserter(s, s.begin())
+		);
+	
+	for (string s : s)
+		cout << s << endl;
+	save();
+}
+
+
+
+==============================
+Mon Apr 17 15:13:28 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.10 목 (월56목56) - (6주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+
+#include <iostream>
+#include <map>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+// 현상금이 높은 순으로 정렬하시오.
+// --> map 에서는 해결불가
+// --> 현상금 우선순위인 다른 컨테이너에 넣는다.
+int main()
+{
+	// map<key, value>
+	// key값이 정렬의 대상. < 연산자로 정렬한다.
+	 
+	map<string, int> OnePiece{
+		pair<string,int>("쵸파",50),
+		make_pair("나미",16000000),
+	};
+	
+	OnePiece.insert(make_pair("브록", 33000000));
+
+	OnePiece["나미"] = 66000000;
+
+	OnePiece["루피"] = 500000000;
+	for (pair<string, int> d : OnePiece)
+		cout << d.first << " : " << d.second << endl;
+
+	vector<pair<string, int>> v(OnePiece.begin(), OnePiece.end());
+	
+	sort(v.begin(), v.end(), [](const pair<string, int>& a, const pair<string, int>& b ) {
+		return a.second > b.second;
+	});
+
+	for (pair<string, int> v : OnePiece)
+		cout << v.first << " : " << v.second << endl;
+	save();
+
+}
+
+
+
+==============================
+Thu Apr 20 13:49:34 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.10 목 (월56목56) - (6주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+
+#include <iostream>
+#include <fstream>
+#include <map>
+#include <vector>
+#include <string>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+
+int main()
+{
+	// map<key, value>
+	// key값이 정렬의 대상. < 연산자로 정렬한다.
+	// 소스파일 읽어서 단어당 출현 횟수 출력
+	ifstream in("소스.cpp");
+	string s;
+
+	map<string, int> m;
+
+	while (in >> s)
+		m[s]++;
+	
+	for (auto d : m)
+		cout << d.first << ":" << d.second << endl;
+	save();
+
+}
+
+
+
+==============================
+Thu Apr 20 13:58:52 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.20 목 (월56목56) - (8주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+// 정식 컨테이너는 아니지만 컨테이너로 사용할 수 있는 것들
+// 1. [] - 기존의 배열
+// 2. string - char*를 배치하기 위해 만든 class
+
+
+
+int main()
+{
+	string s = { "Hello World" };
+	
+	// s를 정렬하고 출력해주세요
+	sort(s.begin(), s.end());	// POD는 람다를 적지않아도 알아서 정렬을 해줌
+
+	cout << s << endl;
+
+	save();
+
+}
+
+
+
+==============================
+Thu Apr 20 14:01:19 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.20 목 (월56목56) - (8주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+// 정식 컨테이너는 아니지만 컨테이너로 사용할 수 있는 것들
+// 1. [] - 기존의 배열
+// 2. string - char*를 배치하기 위해 만든 class
+
+
+
+int main()
+{
+	char s[] =  "Hello World" ;
+	
+	// s를 정렬하고 출력해주세요
+	sort(s, s+14);	// POD는 람다를 적지않아도 알아서 정렬을 해줌
+
+	cout << s << endl;
+
+	save();
+
+}
+
+
+
+==============================
+Thu Apr 20 14:02:58 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.20 목 (월56목56) - (8주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+// 6.3 반복자
+// 모든 STL의 컨테이너는 다음 동작을 하는 반복자를 제공한다.
+
+
+int main()
+{
+	char s[] ="Hello World" ;
+	
+	// s를 정렬하고 출력해주세요
+	sort(s, s + 10);	// POD는 람다를 적지않아도 알아서 정렬을 해줌
+
+	cout << s << endl;
+
+	save();
+
+}
+
+
+
+==============================
+Thu Apr 20 14:16:06 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.20 목 (월56목56) - (8주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+using namespace std;
+
+// 6.3 반복자
+// 모든 STL의 컨테이너는 다음 동작을 하는 반복자를 제공한다.
+// *	- (dereferencing operator) 반복자가 가리키는 값을 가져온다.
+// ++	- 반복자를 다음 위치로 이동시킨다
+// ==	- 반복자끼리 위치를 비교한다
+// =	- 반복자에 다른 반복자를 assign 한다.
+
+int main()
+{
+	vector<int> v{ 1, 2, 3, 4, 5, 6, 7 };
+
+	vector<int>::const_iterator pos = v.cbegin();		// 값을 쓰지 않고 읽기만 하겠어
+														// 첫원소 위치좀 줘
+	// 벡터의 첫원소의 위치 자료형
+	cout << *pos << endl;
+	cout << *(++pos) << endl;
+	auto another = pos;
+	cout << *another << endl; 
+	cout << boolalpha << (another == pos) << endl;
+
+	save();
+
+}
+
+
+==============================
+Thu Apr 20 14:39:16 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.20 목 (월56목56) - (8주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+using namespace std;
+
+// 
+
+int main()
+{
+	vector<int> v{ 2, 5, 4, 1, 6, 3 };
+
+	// 최솟값을 찾아 출력
+	auto pos = min_element(v.begin(), v.end());	// 최솟값이 저장되어있는 위치를 알려줌
+	cout << *pos << endl;
+
+	string s{ "Hello,World!" };
+	auto spos = min_element(s.begin(), s.end());	// 최솟값이 저장되어있는 위치를 알려줌
+	cout << *spos << endl;
+	save();
+
+}
+
+
+
+==============================
+Thu Apr 20 15:00:31 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.20 목 (월56목56) - (8주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+using namespace std;
+
+
+template <class Iter>
+Iter minElement(Iter beg, Iter end);
+
+
+
+int main()
+{
+	vector<int> v{ 2, 5, 4, 1, 6, 3 };
+
+	// 최솟값을 찾아 출력
+	auto pos = minElement(v.begin(), v.end());	// 최솟값이 저장되어있는 위치를 알려줌
+	cout << *pos << endl;
+
+	string s{ "Hello,World!" };
+	auto spos = min_element(s.begin(), s.end());	// 최솟값이 저장되어있는 위치를 알려줌
+	cout << *spos << endl;
+	save();
+
+}
+template <class Iter>
+Iter minElement(Iter beg, Iter end)
+{	// definition 함수의 정의
+	// 현재 값이 최소값보다 더 작니?
+	// 최소값 = 현재값
+	// begin이 end에 도달할 때 까지
+	auto min = beg;
+
+	while (beg != end) {
+		if (*beg < *min)
+			min = beg;	// 제일 작은 값의 위치 변경
+		++beg;
+	}
+	return min;
+
+};
+
+
+==============================
+Thu Apr 20 15:17:51 2017
+==============================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.20 목 (월56목56) - (8주 1)
+//
+// 4/24 중간시험 (8-2)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+using namespace std;
+
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v);
+
+
+
+int main()
+{
+	vector<int> v{ 2, 5, 4, 1, 6, 3 };
+	save();
+	cout << "안녕하세요. 값을 입력하시면 그 값이 v에 있는지 찾아드릴게요" << endl;
+	while(true)
+	{
+		int val;
+		cout << "찾으시는 값은? ";
+		cin >> val;
+
+		auto pos = findElement(v.begin(), v.end(), val);
+		if (pos == v.end()) {
+			cout << "값을 찾을 수 없습니다." << endl;
+		}
+		else
+		{
+			cout << val << "를 찾았습니다." << endl;
+		}
+	}
+	
+
+}
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v)
+{	
+	while (beg != end) {
+		if (*beg == v)
+			return beg;
+		++beg;
+	}
+	return end;
+};
+
+
+==============================
+Thu Apr 27 14:59:14 2017
+==============================
+
+
+#include<vector>
+#include<deque>
+#include<iostream>
+#include<set>
+#include "save.h"
+
+using namespace std;
+//int main()
+//{
+//	set<int> s{ 2, 5, 4, 1, 6, 3 };
+//	s.find(7);
+//	auto pos = myFind(s.begin(), s.end(), 7);
+//}
+//
+//template <class Iter, class Val>
+//Iter myFind(Iter beg, Iter end, Val val)
+//{
+//	while (beg != end) {
+//		if (*beg == val)
+//			return beg;
+//		++beg;
+//	}
+//	return end;
+//}
+
+int main()
+{
+	vector<int> v{ 2, 5, 4, 1, 6, 3 };
+	deque<int> d{1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0};
+
+	copy(v.begin(), v.end(), d.begin()+3);
+	// 알고리즘 함수 copy는
+	// copy(어디부터, 어디까지, 어디로);
+	// 다중 범위를 갖는다.
+	// 소스범위는 전체 [begin, end) 를 지정하고
+	// 목적지는 시작위치만 지정하면 된다.
+	save();
+}
+
+
+template <class Iter, class Val>
+Iter myFind(Iter beg, Iter end, Val val)
+{
+	while (beg != end) {
+		if (*beg == val)
+			return beg;
+		++beg;
+	}
+	return end;
+}
+
+
+==============================
+Thu Apr 27 15:12:44 2017
+==============================
+
+
+#include<vector>
+#include<deque>
+#include<iostream>
+#include<set>
+#include "save.h"
+
+using namespace std;
+
+template <class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des);
+
+template <class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des)
+{
+	while (beg != end) {
+		*des++ = *beg++;
+	}
+};
+int main()
+{
+	vector<int> v{ 2, 5, 4, 1, 6, 3 };
+	deque<int> d{1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0};
+
+	myCopy(v.begin(), v.end(), d.begin());
+	for (int d : d)
+		cout << d << " ";
+		cout << endl;
+	// 알고리즘 함수 copy는
+	// copy(어디부터, 어디까지, 어디로);
+	// 다중 범위를 갖는다.
+	// 소스범위는 전체 [begin, end) 를 지정하고
+	// 목적지는 시작위치만 지정하면 된다.
+	save();
+}
+
+
+
+==============================
+Mon May  1 14:53:44 2017
+==============================
+
+
+#include <vector>
+#include <deque>
+#include <iostream>
+#include <iterator>
+#include <set>
+#include "save.h"
+
+using namespace std;
+
+template <class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des);
+
+template <class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des)
+{
+	while (beg != end) {
+		*des++ = *beg++;
+	}
+};
+int main()
+{
+	vector<int> v{ 2, 5, 4, 1, 6, 3 };
+	deque<int> d;
+
+	myCopy(v.begin(), v.end(), back_inserter(d));
+
+	// copy 알고리즘은 반복자만을 인자로 받는다.
+	// 그런데 위와 같은 반복자는 (특히 목적지 반복자)
+	// 복사되기에 충분한 메모리가 확보되어 있는지 알 방법이 없다.
+	// 이런건 프로그래머가 알아서 하라는 것이 c 계열 언어의 생각이다.
+	// 그렇지만 어떤 경우에 알고리즘이 알아서 메모리를 확보하며
+	// 원소를 복사하면 좋을 수 있겠다.
+	// 알고리즘함수는 반복자만 인자로 받을 뿐 그 외 정보는 알 길이 없다.
+	// 이런일이 어떻게 가능할까?
+	
+	// 답 : 목적지 인자로 전달되는 반복자(OutIter des)를 
+	// 마치 겉모습은 반복자이지만 속에서는 전혀 다른 동작을
+	// 하는 살짝 변형된 반복자를 인자로 전달하는 것이다.
+	for (int d : d)
+		cout << d << " ";
+		cout << endl;
+	// 알고리즘 함수 copy는
+	// copy(어디부터, 어디까지, 어디로);
+	// 다중 범위를 갖는다.
+	// 소스범위는 전체 [begin, end) 를 지정하고
+	// 목적지는 시작위치만 지정하면 된다.
+	save();
+}
+
+
+
+==============================
+Thu May  4 15:17:32 2017
+==============================
+
+
+#include <vector>
+#include <iostream>
+#include "save.h"
+
+// 알고리즘은 반복자를 인자로 받는다.
+// 반복자는 반복자처럼 행동하는 모든 것들이다.
+// c++는 연산자 오버로딩으로 반복자의 행동을 하는
+//		클래스를 얼마든지 만들 수 있다.
+// 이런 클래스를 반복자 어댑터라고 부른다. 
+// 1. 삽입반복자
+// 2. 역방향반복자
+// 3. string반복자
+// 4. 이동반복자
+int main()
+{
+	save();
+	
+}
+
+
+
+==============================
+Mon May  8 13:40:35 2017
+==============================
+
+
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <iterator>
+#include "save.h"
+
+using namespace std;
+
+int main()
+{
+	vector<int> v { 2017, 5, 8, 1, 38};
+	vector<int> w;
+
+	copy(v.begin(), v.end(), back_inserter(w));
+
+	for (int d : w)
+		cout << d << " ";
+	cout << endl;
+
+	save();
+}
+
+
+
+==============================
+Mon May  8 13:47:26 2017
+==============================
+
+
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <iterator>
+#include "save.h"
+
+using namespace std;
+
+class back {
+	vector<int>* cont;
+public:
+	back(vector<int>& v) {
+		cont = &v;
+	}
+
+	back& operator*() { return *this; }
+	void operator=(int val) { cont->push_back(val); }
+	void operator++() {};
+	void operator++(int) {};
+};
+
+int main()
+{
+	vector<int> v { 2017, 5, 8, 1, 38};
+	vector<int> w;
+
+	copy(v.begin(), v.end(), back(w));
+
+	for (int d : w)
+		cout << d << " ";
+	cout << endl;
+
+	save();
+}
+
+
+
+==============================
+Mon May  8 13:51:52 2017
+==============================
+
+
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <iterator>
+#include "save.h"
+
+using namespace std;
+
+class back {
+	vector<int>* cont;
+public:
+	back(vector<int>& v) {
+		cont = &v;
+	}
+
+	back& operator*() { return *this; }
+	void operator=(int val) { cont->push_back(val); }
+	void operator++() {};
+	void operator++(int) {};
+};
+
+template<class In, class Out>
+void myCopy(In beg, In end, Out des)
+{
+	while (beg != end) {
+		*des = *beg;
+		des++;
+		beg++;
+	}
+
+}
+int main()
+{
+	vector<int> v { 2017, 5, 8, 1, 38};
+	vector<int> w;
+
+	myCopy(v.begin(), v.end(), back(w));
+
+	for (int d : w)
+		cout << d << " ";
+	cout << endl;
+
+	save();
+}
+
+
+
+==============================
+Mon May  8 14:04:15 2017
+==============================
+
+
+#include <vector>
+#include <iostream>
+#include <string>
+#include "save.h"
+
+using namespace std;
+// 알고리즘은 반복자를 인자로 받는다.
+// 반복자는 반복자처럼 행동하는 모든 것들이다.
+// c++는 연산자 오버로딩으로 반복자의 행동을 하는
+//		클래스를 얼마든지 만들 수 있다.
+// 이런 클래스를 반복자 어댑터라고 부른다. 
+// 1. 삽입반복자
+// 2. 역방향반복자
+// 3. string반복자
+// 4. 이동반복자
+int main()
+{
+	string s = "2017. 5. 8. 1. 54";
+	
+	auto p = s.end();
+
+	while (--p != s.begin())
+		cout << *p;
+	cout << endl;
+	for (auto i = s.begin(); i != s.end(); ++i)
+	{
+		cout << *i << " ";
+	}
+	cout << endl;
+		save();
+
+}
+
+
+
+==============================
+Mon May  8 14:05:05 2017
+==============================
+
+
+#include <vector>
+#include <iostream>
+#include <string>
+#include "save.h"
+
+using namespace std;
+// 알고리즘은 반복자를 인자로 받는다.
+// 반복자는 반복자처럼 행동하는 모든 것들이다.
+// c++는 연산자 오버로딩으로 반복자의 행동을 하는
+//		클래스를 얼마든지 만들 수 있다.
+// 이런 클래스를 반복자 어댑터라고 부른다. 
+// 1. 삽입반복자
+// 2. 역방향반복자
+// 3. string반복자
+// 4. 이동반복자
+int main()
+{
+역방향 으로 찍기
+	string s = "2017. 5. 8. 1. 54";
+
+
+	for (auto i = s.rbegin(); i != s.rend(); ++i)
+		cout << *i << " ";
+	cout << endl;
+		save();
+
+}
+
+
+
+==============================
+Mon May  8 14:19:44 2017
+==============================
+
+
+#include <vector>
+#include <iostream>
+#include <string>
+#include <iterator>
+#include "save.h"
+
+using namespace std;
+// 알고리즘은 반복자를 인자로 받는다.
+// 반복자는 반복자처럼 행동하는 모든 것들이다.
+// c++는 연산자 오버로딩으로 반복자의 행동을 하는
+//		클래스를 얼마든지 만들 수 있다.
+// 이런 클래스를 반복자 어댑터라고 부른다. 
+// 1. 삽입반복자
+// 2. 역방향반복자
+// 3. stream반복자
+// 4. 이동반복자
+
+// stream iterator (스트림 반복자)
+// 키보드에서 단어를 입력받아 정렬하라. 
+int main()
+{
+	vector<int> v;
+
+		cout << "정수를 계속 입력하면 합계를 구합니다." << endl;
+		cout << "입력의 끝은 ctrl+z 입니다." << endl;
+
+		copy(istream_iterator<int>(cin), istream_iterator<int>(), back_inserter(v));
+
+		int sum = 0;
+		for (int d : v)
+			sum += d;
+		cout << "합계는 " << sum << "입니다." << endl;
+		v.clear();
+		cin.clear();
+
+	save();
+
+}
+
+
+
+==============================
+Mon May  8 14:48:25 2017
+==============================
+
+
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <iterator>
+#include "save.h"
+
+using namespace std;
+// 6.7 알고리즘 조작
+int main()
+{
+	vector<int> v{ 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+	// v에서 3의 배수를 지워주세요.
+	// remove_if()를 사용합니다.
+	auto p = remove_if(v.begin(), v.end(), [](int a) {
+		return (a % 3 == 0);
+	});							// 새로운end 위치 반환
+
+	v.erase(p, v.end());		// 실제 삭제
+	for (int d : v)
+		cout << d << " ";
+	cout << endl;
+
+	cout << "3의 배수를 지운 후" << v.size() << endl;
+
+	save();
+
+}
+
+
+
+==============================
+Mon May  8 14:58:56 2017
+==============================
+
+
+#include <set>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include "save.h"
+
+using namespace std;
+// 6.7 알고리즘 조작
+// p274
+int main()
+{
+	set<int> s{ 1, 2, 3, 4, 5, 6, 7, 8, 9 };
+
+	// s에서 홀수를 찾는다
+	// 찾은 홀수를 지운다.
+	// set에서는 이것을 실행할수 없으므로 vector를 만들고 이를 set에 복사한다.
+	
+	vector<int> v(s.begin(), s.end());
+	auto p = remove_if(v.begin(), v.end(), [](int a) {
+		return (a % 2);
+	});							// 새로운end 위치 반환
+	v.erase(p, v.end());		// 실제 삭제
+								// 홀수를 지워주세요.ㄷ
+	s.clear();
+	s.insert(v.begin(), v.end());
+	for (int d : s)
+		cout << d << " ";
+	cout << endl;
+
+	cout << "홀수를 지운 후" << s.size() << endl;
+
+	save();
+
+}
+
+
+
+==============================
+Mon May  8 15:08:35 2017
+==============================
+
+
+#include <set>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <fstream>
+#include "save.h"
+
+using namespace std;
+// 7장 STL 컨테이너
+int main()
+{
+	// p307 표 7-1 모든 컨테이너의 공통 동작
+	// ContType c     필요		기본생성자. 어떤 요소도 갖지 않는 빈 컨테이너 생성
+	// ContType c(c2)			복사생성자.
+	// ContType c = c2			복사생성자.
+	// ContType c(beg, end);	
+	vector<int> c2{1, 2, 3, 4, 5};
+	vector<int> c(c2.rbegin(), c2.rend());
+
+	for (int d : c)
+		cout << d << " ";
+
+	save();
+
+}
+
+
+
+==============================
+Mon May  8 15:19:47 2017
+==============================
+
+
+#include <set>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <iterator>
+#include <fstream>
+#include "save.h"
+
+using namespace std;
+// 7장 STL 컨테이너
+int main()
+{
+	// p307 표 7-1 모든 컨테이너의 공통 동작
+	// ContType c     필요		기본생성자. 어떤 요소도 갖지 않는 빈 컨테이너 생성
+	// ContType c(c2)			복사생성자.
+	// ContType c = c2			복사생성자.
+	// ContType c(beg, end);	
+	// ContType c(initlist) 초기화자목록으로 컨테이너를 만들 수 있다.
+	// ContType c = initlist 쓸수 있다.
+	// ContType c initlist 
+	// c.~ContType()		할 수 있다면 모든 요소를 삭제하고 메모리를 풀어줌
+	vector<int> v({1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
+	cout << v.size() << endl;
+
+	v.~vector<int>();
+	save();
+}
+
+
+
+
+===========================================
+Thu Apr 27 14:48:34 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.27 목 (월56목56) - (9주 1)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include "save.h"
+using namespace std;
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v);
+
+int main()
+{
+   vector<int> v{ 2, 5, 4, 1, 6, 3 };
+   save();
+   cout << "안녕하세요. 값을 입력하시면 그 값이 v에 있는지 찾아드릴게요" << endl;
+   while (true)
+   {
+      int val;
+      cout << "찾으시는 값은? ";
+      cin >> val;
+
+      auto pos = findElement(v.begin(), v.end(), val);
+      if (pos == v.end()) {
+         cout << "값을 찾을 수 없습니다." << endl;
+      }
+      else
+      {
+         cout << val << "를 찾았습니다." << endl;
+      }
+   }
+   
+   save();
+
+}
+
+
+
+
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      if (*beg == v)
+         return beg;
+      ++beg;
+   }
+   return end;
+};
+
+
+===========================================
+Thu Apr 27 14:49:06 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.27 목 (월56목56) - (9주 1)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <set>
+#include "save.h"
+using namespace std;
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v);
+
+int main()
+{
+   set<int> s{ 2, 5, 4, 1, 6, 3 };
+   s.find(2);
+
+   save();
+
+}
+
+
+
+
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      if (*beg == v)
+         return beg;
+      ++beg;
+   }
+   return end;
+};
+
+
+===========================================
+Thu Apr 27 14:56:13 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.27 목 (월56목56) - (9주 1)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <deque>
+#include "save.h"
+using namespace std;
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v);
+
+int main()
+{
+   vector<int> v{ 2, 5, 4, 1, 6, 3 };
+   deque<int> d{1,1,1,1,1,1,0,0,0,0};
+
+   copy(v.begin(), v.end(), d.begin());
+   // 알고리즘 함수 copy는 
+   // copy(어디부터, 어디까지, 어디로);
+   // 다중 범위를 갖는다.
+   // 소스범위는 전체[beg,end]를 지정하고
+   // 목적지는 시작위치만 지정하면 된다.
+
+
+
+   save();
+
+}
+
+
+
+
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      if (*beg == v)
+         return beg;
+      ++beg;
+   }
+   return end;
+};
+
+
+===========================================
+Thu Apr 27 14:56:34 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.27 목 (월56목56) - (9주 1)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <deque>
+#include "save.h"
+using namespace std;
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v);
+
+int main()
+{
+   vector<int> v{ 2, 5, 4, 1, 6, 3 };
+   deque<int> d{1,1,1,1,1,1,0,0,0,0};
+
+   copy(v.begin(), v.end(), d.begin());
+   // 알고리즘 함수 copy는 
+   // copy(어디부터, 어디까지, 어디로);
+   // 다중 범위를 갖는다.
+   // 소스범위는 전체[beg,end]를 지정하고
+   // 목적지는 시작위치만 지정하면 된다.
+
+
+
+   save();
+
+}
+
+
+
+
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      if (*beg == v)
+         return beg;
+      ++beg;
+   }
+   return end;
+};
+
+
+===========================================
+Thu Apr 27 14:57:31 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.27 목 (월56목56) - (9주 1)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <deque>
+#include "save.h"
+using namespace std;
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v);
+
+int main()
+{
+   vector<int> v{ 2, 5, 4, 1, 6, 3 };
+   deque<int> d{1,1,1,1,1,1,0,0,0,0};
+
+   copy(v.begin(), v.end(), d.begin());
+   // 알고리즘 함수 copy는 
+   // copy(어디부터, 어디까지, 어디로);
+   // 다중 범위를 갖는다.
+   // 소스범위는 전체[beg,end]를 지정하고
+   // 목적지는 시작위치만 지정하면 된다.
+
+   for (int a : d)
+      cout << a << endl;
+
+   save();
+
+}
+
+
+
+
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      if (*beg == v)
+         return beg;
+      ++beg;
+   }
+   return end;
+};
+
+
+===========================================
+Thu Apr 27 14:57:43 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.27 목 (월56목56) - (9주 1)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <deque>
+#include "save.h"
+using namespace std;
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v);
+
+int main()
+{
+   vector<int> v{ 2, 5, 4, 1, 6, 3 };
+   deque<int> d{1,1,1,1,1,1,0,0,0,0};
+
+   copy(v.begin(), v.end(), d.begin());
+   // 알고리즘 함수 copy는 
+   // copy(어디부터, 어디까지, 어디로);
+   // 다중 범위를 갖는다.
+   // 소스범위는 전체[beg,end]를 지정하고
+   // 목적지는 시작위치만 지정하면 된다.
+
+   for (int a : d)
+      cout << a;
+   cout << endl;
+
+   save();
+
+}
+
+
+
+
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      if (*beg == v)
+         return beg;
+      ++beg;
+   }
+   return end;
+};
+
+
+===========================================
+Thu Apr 27 15:03:00 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.27 목 (월56목56) - (9주 1)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <deque>
+#include "save.h"
+using namespace std;
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v);
+
+template <class Iter, class Val>
+Iter myCopy(Iter beg, Iter end, Val v);
+
+int main()
+{
+   vector<int> v{ 2, 5, 4, 1, 6, 3 };
+   deque<int> d{1,1,1,1,1,1,0,0,0,0};
+
+   myCopy(v.begin(), v.end(), d.begin() + 3);         // 복사를하기위해서는 새로운 컨테이너에 메모리가 있어야됨
+   // 알고리즘 함수 copy는 
+   // copy(어디부터, 어디까지, 어디로);
+   // 다중 범위를 갖는다.
+   // 소스범위는 전체[beg,end]를 지정하고
+   // 목적지는 시작위치만 지정하면 된다.
+
+   for (int a : d)
+      cout << a;
+   cout << endl;
+
+   save();
+
+}
+
+
+
+
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      if (*beg == v)
+         return beg;
+      ++beg;
+   }
+   return end;
+}
+template<class Iter, class Val>
+Iter myCopy(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      *v = *beg;
+      ++beg;
+   }
+   return end;
+}
+
+
+===========================================
+Thu Apr 27 15:03:21 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.27 목 (월56목56) - (9주 1)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <deque>
+#include "save.h"
+using namespace std;
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v);
+
+template <class Iter, class Val>
+Iter myCopy(Iter beg, Iter end, Val v);
+
+int main()
+{
+   vector<int> v{ 2, 5, 4, 1, 6, 3 };
+   deque<int> d{1,1,1,1,1,1,0,0,0,0};
+
+   myCopy(v.begin(), v.end(), d.begin() + 3);         // 복사를하기위해서는 새로운 컨테이너에 메모리가 있어야됨
+   // 알고리즘 함수 copy는 
+   // copy(어디부터, 어디까지, 어디로);
+   // 다중 범위를 갖는다.
+   // 소스범위는 전체[beg,end]를 지정하고
+   // 목적지는 시작위치만 지정하면 된다.
+
+   for (int a : d)
+      cout << a;
+   cout << endl;
+
+   save();
+
+}
+
+
+
+
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      if (*beg == v)
+         return beg;
+      ++beg;
+   }
+   return end;
+}
+template<class Iter, class Val>
+Iter myCopy(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      *v = *beg;
+      ++beg;
+   }
+   return end;
+}
+
+
+===========================================
+Thu Apr 27 15:03:42 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.27 목 (월56목56) - (9주 1)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <deque>
+#include "save.h"
+using namespace std;
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v);
+
+template <class Iter, class Val>
+Iter myCopy(Iter beg, Iter end, Val v);
+
+int main()
+{
+   vector<int> v{ 2, 5, 4, 1, 6, 3 };
+   deque<int> d{1,1,1,1,1,1,0,0,0,0};
+
+   myCopy(v.begin(), v.end(), d.begin() + 3);         // 복사를하기위해서는 새로운 컨테이너에 메모리가 있어야됨
+   // 알고리즘 함수 copy는 
+   // copy(어디부터, 어디까지, 어디로);
+   // 다중 범위를 갖는다.
+   // 소스범위는 전체[beg,end]를 지정하고
+   // 목적지는 시작위치만 지정하면 된다.
+
+   for (int a : d)
+      cout << a;
+   cout << endl;
+
+   save();
+
+}
+
+
+
+
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      if (*beg == v)
+         return beg;
+      ++beg;
+   }
+   return end;
+}
+template<class Iter, class Val>
+Iter myCopy(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      *v = *beg;
+      ++beg;
+      ++v;
+   }
+   return end;
+}
+
+
+===========================================
+Thu Apr 27 15:08:05 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.27 목 (월56목56) - (9주 1)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <deque>
+#include "save.h"
+using namespace std;
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v);
+
+template<class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des);
+
+int main()
+{
+   vector<int> v{ 2, 5, 4, 1, 6, 3 };
+   deque<int> d{1,1,1,1,1,1,0,0,0,0};
+
+   myCopy(v.begin(), v.end(), d.begin() + 3);         // 복사를하기위해서는 새로운 컨테이너에 메모리가 있어야됨
+   // 알고리즘 함수 copy는 
+   // copy(어디부터, 어디까지, 어디로);
+   // 다중 범위를 갖는다.
+   // 소스범위는 전체[beg,end]를 지정하고
+   // 목적지는 시작위치만 지정하면 된다.
+
+   for (int a : d)
+      cout << a;
+   cout << endl;
+
+   save();
+
+}
+
+
+
+
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      if (*beg == v)
+         return beg;
+      ++beg;
+   }
+   return end;
+}
+template<class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des)
+{
+   while (beg != end) {
+      *des = *beg;
+      ++beg;
+      ++des;
+   }
+}
+
+
+===========================================
+Thu Apr 27 15:12:00 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.27 목 (월56목56) - (9주 1)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <deque>
+#include "save.h"
+using namespace std;
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v);
+
+template<class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des);
+
+int main()
+{
+   vector<int> v{ 2, 5, 4, 1, 6, 3 };
+   deque<int> d{1,1,1,1,1,1,0,0,0,0};
+
+   myCopy(v.begin(), v.end(), d.begin() + 3);         // 복사를하기위해서는 새로운 컨테이너에 메모리가 있어야됨
+   // 알고리즘 함수 copy는 
+   // copy(어디부터, 어디까지, 어디로);
+   // 다중 범위를 갖는다.
+   // 소스범위는 전체[beg,end]를 지정하고
+   // 목적지는 시작위치만 지정하면 된다.
+
+   for (int a : d)
+      cout << a;
+   cout << endl;
+
+   save();
+
+}
+
+
+
+
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      if (*beg == v)
+         return beg;
+      ++beg;
+   }
+   return end;
+}
+
+template<class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des)
+{
+   while (beg != end) {
+      *des++ = *beg++;
+   }
+}
+
+
+===========================================
+Thu Apr 27 15:20:13 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.27 목 (월56목56) - (9주 1)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <iterator>
+#include <deque>
+#include "save.h"
+using namespace std;
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v);
+
+template<class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des);
+
+int main()
+{
+   vector<int> v{ 2, 5, 4, 1, 6, 3 };
+   deque<int> d{1,1,1,1,1,1,0,0,0,0};
+
+   myCopy(v.begin(), v.end(), back_inserter(d));         
+
+   // copy 알고리즘은 반복자만을 인자로 받는다.
+   // 그런데 위와 같은 반복자는(특히 목적지 반복자)
+   // 복사되기에 충분한 메모리가 확보되어있는지 알 방법이 없다.
+   // 이런건 프로그래머가 알아서 하라는 것이 C 계열 언어의 생각이다.
+   // 그렇지만 어떤 경우에 알고리즘이 알아서 메모리를 확보하며
+   // 원소를 복사하면 좋을 수 있겠다.
+   // 알고리즘함수는 반복자만 인자로 받을 뿐 그외 정보는 알길이 없다.
+   // 이런일이 어떻게 가능할까? - 어뎁터
+   //
+   // 답은 목적지 인자로 전달되는 반복자( OutIter des )를
+   // 마치 겉모습은 반복자이지만 속에서는 전혀 다른 동작을 하는
+   // 살짝 변형된 반복자를 인자로 전달하는 것이다.
+
+
+   // 알고리즘 함수 copy는 
+   // copy(어디부터, 어디까지, 어디로);
+   // 다중 범위를 갖는다.
+   // 소스범위는 전체[beg,end]를 지정하고
+   // 목적지는 시작위치만 지정하면 된다.
+
+   for (int a : d)
+      cout << a;
+   cout << endl;
+
+   save();
+
+}
+
+
+
+
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      if (*beg == v)
+         return beg;
+      ++beg;
+   }
+   return end;
+}
+
+template<class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des)
+{
+   while (beg != end) 
+      *des++ = *beg++;   // 값을 집어넣고 이동한다.
+   
+}
+
+
+===========================================
+Thu Apr 27 15:20:32 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.27 목 (월56목56) - (9주 1)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <iterator>
+#include <deque>
+#include "save.h"
+using namespace std;
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v);
+
+template<class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des);
+
+int main()
+{
+   vector<int> v{ 2, 5, 4, 1, 6, 3 };
+   deque<int> d{1,1,1,1,1,1,0,0,0,0};
+
+   myCopy(v.begin(), v.end(), back_inserter(d));         
+
+   // copy 알고리즘은 반복자만을 인자로 받는다.
+   // 그런데 위와 같은 반복자는(특히 목적지 반복자)
+   // 복사되기에 충분한 메모리가 확보되어있는지 알 방법이 없다.
+   // 이런건 프로그래머가 알아서 하라는 것이 C 계열 언어의 생각이다.
+   // 그렇지만 어떤 경우에 알고리즘이 알아서 메모리를 확보하며
+   // 원소를 복사하면 좋을 수 있겠다.
+   // 알고리즘함수는 반복자만 인자로 받을 뿐 그외 정보는 알길이 없다.
+   // 이런일이 어떻게 가능할까? - 어뎁터
+   //
+   // 답은 목적지 인자로 전달되는 반복자( OutIter des )를
+   // 마치 겉모습은 반복자이지만 속에서는 전혀 다른 동작을 하는
+   // 살짝 변형된 반복자를 인자로 전달하는 것이다.
+
+
+   // 알고리즘 함수 copy는 
+   // copy(어디부터, 어디까지, 어디로);
+   // 다중 범위를 갖는다.
+   // 소스범위는 전체[beg,end]를 지정하고
+   // 목적지는 시작위치만 지정하면 된다.
+
+   for (int a : d)
+      cout << a;
+   cout << endl;
+
+   save();
+
+}
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      if (*beg == v)
+         return beg;
+      ++beg;
+   }
+   return end;
+}
+
+template<class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des)
+{
+   while (beg != end) 
+      *des++ = *beg++;   // 값을 집어넣고 이동한다.
+   
+}
+
+
+===========================================
+Mon May  1 14:31:00 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.27 목 (월56목56) - (9주 1)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <iterator>
+#include <deque>
+#include "save.h"
+using namespace std;
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v);
+
+template<class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des);
+
+int main()
+{
+   vector<int> v{ 2, 5, 4, 1, 6, 3 };
+   deque<int> d{1,1,1,1,1,1,0,0,0,0};
+
+   myCopy(v.begin(), v.end(), back_inserter(d));         
+
+   // copy 알고리즘은 반복자만을 인자로 받는다.
+   // 그런데 위와 같은 반복자는(특히 목적지 반복자)
+   // 복사되기에 충분한 메모리가 확보되어있는지 알 방법이 없다.
+   // 이런건 프로그래머가 알아서 하라는 것이 C 계열 언어의 생각이다.
+   // 그렇지만 어떤 경우에 알고리즘이 알아서 메모리를 확보하며
+   // 원소를 복사하면 좋을 수 있겠다.
+   // 알고리즘함수는 반복자만 인자로 받을 뿐 그외 정보는 알길이 없다.
+   // 이런일이 어떻게 가능할까? - 어뎁터
+   //
+   // 답은 목적지 인자로 전달되는 반복자( OutIter des )를
+   // 마치 겉모습은 반복자이지만 속에서는 전혀 다른 동작을 하는
+   // 살짝 변형된 반복자를 인자로 전달하는 것이다.
+
+
+   // 알고리즘 함수 copy는 
+   // copy(어디부터, 어디까지, 어디로);
+   // 다중 범위를 갖는다.
+   // 소스범위는 전체[beg,end]를 지정하고
+   // 목적지는 시작위치만 지정하면 된다.
+
+   for (int a : d)
+      cout << a;
+   cout << endl;
+
+   save();
+
+}
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      if (*beg == v)
+         return beg;
+      ++beg;
+   }
+   return end;
+}
+
+template<class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des)
+{
+   while (beg != end) 
+      *des++ = *beg++;   // 값을 집어넣고 이동한다.
+   
+}
+
+
+===========================================
+Mon May  1 14:57:29 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.27 목 (월56목56) - (9주 1)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <iterator>
+#include <deque>
+#include "save.h"
+using namespace std;
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v);
+
+template<class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des);
+
+int main()
+{
+   vector<int> v{ 2, 5, 4, 1, 6, 3 };
+   vector<int> v1;
+
+   v1.reserve(10);
+
+   myCopy(v.begin(), v.end(), v1.begin());
+
+
+
+   for (int a : v1)
+      cout << a << ' ';
+   cout << endl;
+
+   save();
+
+}
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      if (*beg == v)
+         return beg;
+      ++beg;
+   }
+   return end;
+}
+
+template<class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des)
+{
+   while (beg != end) 
+      *des++ = *beg++;   // 값을 집어넣고 이동한다.
+   
+}
+
+
+===========================================
+Mon May  1 14:59:45 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.27 목 (월56목56) - (9주 1)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <iterator>
+#include <deque>
+#include "save.h"
+using namespace std;
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v);
+
+template<class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des);
+
+int main()
+{
+   vector<int> v{ 2, 5, 4, 1, 6, 3 };
+   vector<int> v1(10);
+
+
+
+   myCopy(v.begin(), v.end(), v1.begin());
+
+
+
+   for (int a : v1)
+      cout << a << ' ';
+   cout << endl;
+
+   save();
+
+}
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      if (*beg == v)
+         return beg;
+      ++beg;
+   }
+   return end;
+}
+
+template<class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des)
+{
+   while (beg != end) 
+      *des++ = *beg++;   // 값을 집어넣고 이동한다.
+   
+}
+
+
+===========================================
+Mon May  1 15:09:19 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.27 목 (월56목56) - (9주 1)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <iterator>
+#include <deque>
+#include "save.h"
+using namespace std;
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v);
+
+template<class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des);
+
+int main()
+{
+   vector<int> v{ 2, 5, 4, 1, 6, 3 };
+   vector<int> v1;
+   v1.reserve(10);
+
+
+
+   myCopy(v.begin(), v.end(), v1.begin());
+
+
+   for (auto i = v.begin(); i != v.end(); ++i)
+      cout << *i << ' ';
+   cout << endl;
+
+   auto p = v1.data();
+   cout << *p++;
+   cout << *p++;
+   cout << *p++ << endl;
+
+
+   save();
+
+}
+
+template <class Iter, class Val>
+Iter findElement(Iter beg, Iter end, Val v)
+{
+   while (beg != end) {
+      if (*beg == v)
+         return beg;
+      ++beg;
+   }
+   return end;
+}
+
+template<class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des)
+{
+   while (beg != end) 
+      *des++ = *beg++;   // 값을 집어넣고 이동한다.
+   
+}
+
+
+===========================================
+Thu May  4 14:57:37 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 4.27 목 (월56목56) - (9주 1)
+//
+// 6장 표준 템플릿 라이브러리
+//----------------------------------------------------
+#include <iostream>
+#include <list>
+#include <iterator>
+#include "save.h"
+using namespace std;
+
+int main()
+{
+   int a[]{ 1,2,3,4,5 };
+   list<int> l;
+
+   copy(begin(a), end(a), inserter(l, l.begin()));
+
+
+   save();
+
+}
+
+
+
+===========================================
+Mon May  8 13:40:30 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 5.4 목 (월56목56) - (10주 1)
+//
+// 책 p.262  -- 삽입반복자
+//
+//----------------------------------------------------
+//
+// 알고리즘은 반복자를 인자로 받는다.
+// 반복자는 반복자처럼 행동하는 모든 것들이다.
+// C++는 연산자 오버로딩으로 반복자의 행동을 하는 
+//            클래스를 얼마든지 만들 수 있다.
+// 이런 클래스를 반복자 어댑터라고 부른다.
+// 1. 삽입 반복자
+// 2. 역방향 반복자
+// 3. 스트링 반복자
+// 4. 이동 반복자
+//
+//----------------------------------------------------
+#include <iostream>
+#include <vector>
+#include<algorithm>
+#include <iterator>
+#include "save.h"
+using namespace std;
+
+int main()
+{
+   vector<int> v{ 2017,5,8,1,38 };
+   vector<int> w;
+
+   copy(v.begin(), v.end(), back_inserter(w));
+
+   for (int d : w)
+      cout << d << ' ';
+   cout << endl;
+
+   save();
+
+}
+
+
+
+===========================================
+Mon May  8 13:40:55 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 5.8 월 (월56목56) - (10주 2)
+//
+// 책 p.262  -- 삽입반복자
+//
+//----------------------------------------------------
+//
+// 알고리즘은 반복자를 인자로 받는다.
+// 반복자는 반복자처럼 행동하는 모든 것들이다.
+// C++는 연산자 오버로딩으로 반복자의 행동을 하는 
+//            클래스를 얼마든지 만들 수 있다.
+// 이런 클래스를 반복자 어댑터라고 부른다.
+// 1. 삽입 반복자
+// 2. 역방향 반복자
+// 3. 스트링 반복자
+// 4. 이동 반복자
+//
+//----------------------------------------------------
+#include <iostream>
+#include <vector>
+#include<algorithm>
+#include <iterator>
+#include "save.h"
+using namespace std;
+
+int main()
+{
+   vector<int> v{ 2017,5,8,1,38 };
+   vector<int> w;
+
+   copy(v.begin(), v.end(), back_inserter(w));
+
+   for (int d : w)
+      cout << d << ' ';
+   cout << endl;
+
+   save();
+
+}
+
+
+
+===========================================
+Mon May  8 13:50:59 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 5.8 월 (월56목56) - (10주 2)
+//
+// 책 p.262  -- 삽입반복자
+//
+//----------------------------------------------------
+//
+// 알고리즘은 반복자를 인자로 받는다.
+// 반복자는 반복자처럼 행동하는 모든 것들이다.
+// C++는 연산자 오버로딩으로 반복자의 행동을 하는 
+//            클래스를 얼마든지 만들 수 있다.
+// 이런 클래스를 반복자 어댑터라고 부른다.
+// 1. 삽입 반복자
+// 2. 역방향 반복자
+// 3. 스트링 반복자
+// 4. 이동 반복자
+//
+//----------------------------------------------------
+#include <iostream>
+#include <vector>
+#include<algorithm>
+#include <iterator>
+#include "save.h"
+using namespace std;
+
+class back {
+   vector<int>* cont;
+public:
+   back(vector<int>& v) {
+      cont = &v;
+   }
+   back& operator*() { return *this; };
+   void operator=(int val) { cont->push_back(val); };
+   void operator++() {};
+   void operator++(int) {};
+};
+
+template<class In, class Out>
+void myCopy(In beg, In end, Out des) 
+{
+   while (beg != end){
+      *des = *beg;
+      des++;
+      beg++;
+   }
+
+}
+
+int main()
+{
+   vector<int> v{ 2017,5,8,1,38 };
+   vector<int> w;
+
+   myCopy(v.begin(), v.end(), back(w));
+
+   for (int d : w)
+      cout << d << ' ';
+   cout << endl;
+
+   save();
+
+}
+
+
+
+===========================================
+Mon May  8 13:56:24 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 5.8 월 (월56목56) - (10주 2)
+//
+// 책 p.262  -- 삽입반복자
+//
+//----------------------------------------------------
+//
+// 알고리즘은 반복자를 인자로 받는다.
+// 반복자는 반복자처럼 행동하는 모든 것들이다.
+// C++는 연산자 오버로딩으로 반복자의 행동을 하는 
+//            클래스를 얼마든지 만들 수 있다.
+// 이런 클래스를 반복자 어댑터라고 부른다.
+// 1. 삽입 반복자
+// 2. 역방향 반복자
+// 3. 스트링 반복자
+// 4. 이동 반복자
+//
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include "save.h"
+using namespace std;
+
+int main()
+{
+   string s = "2017. 5. 8. 1. 54";
+
+   for (char c : s)
+      cout << c << ' ';
+   cout << endl;
+
+   save();
+
+}
+
+
+
+===========================================
+Mon May  8 14:01:47 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 5.8 월 (월56목56) - (10주 2)
+//
+// 책 p.262  -- 삽입반복자
+//
+//----------------------------------------------------
+//
+// 알고리즘은 반복자를 인자로 받는다.
+// 반복자는 반복자처럼 행동하는 모든 것들이다.
+// C++는 연산자 오버로딩으로 반복자의 행동을 하는 
+//            클래스를 얼마든지 만들 수 있다.
+// 이런 클래스를 반복자 어댑터라고 부른다.
+// 1. 삽입 반복자
+// 2. 역방향 반복자
+// 3. 스트링 반복자
+// 4. 이동 반복자
+//
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+int main()
+{
+   string s = "2017. 5. 8. 1. 54";
+   reverse(s.begin(), s.end());
+
+
+   for (auto i = s.begin(); i != s.end(); ++i)
+      cout << *i << ' ';
+   cout << endl;
+
+   save();
+
+}
+
+
+
+===========================================
+Mon May  8 14:03:18 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 5.8 월 (월56목56) - (10주 2)
+//
+// 책 p.262  -- 삽입반복자
+//
+//----------------------------------------------------
+//
+// 알고리즘은 반복자를 인자로 받는다.
+// 반복자는 반복자처럼 행동하는 모든 것들이다.
+// C++는 연산자 오버로딩으로 반복자의 행동을 하는 
+//            클래스를 얼마든지 만들 수 있다.
+// 이런 클래스를 반복자 어댑터라고 부른다.
+// 1. 삽입 반복자
+// 2. 역방향 반복자
+// 3. 스트링 반복자
+// 4. 이동 반복자
+//
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+int main()
+{
+   string s = "2017. 5. 8. 1. 54";
+   
+
+   auto p = s.end();
+   
+   while(--p != s.begin())
+      cout << *p << ' ';
+
+
+   for (auto i = s.begin(); i != s.end(); ++i)
+      cout << *i << ' ';
+   cout << endl;
+
+   save();
+
+}
+
+
+
+===========================================
+Mon May  8 14:03:52 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 5.8 월 (월56목56) - (10주 2)
+//
+// 책 p.262  -- 삽입반복자
+//
+//----------------------------------------------------
+//
+// 알고리즘은 반복자를 인자로 받는다.
+// 반복자는 반복자처럼 행동하는 모든 것들이다.
+// C++는 연산자 오버로딩으로 반복자의 행동을 하는 
+//            클래스를 얼마든지 만들 수 있다.
+// 이런 클래스를 반복자 어댑터라고 부른다.
+// 1. 삽입 반복자
+// 2. 역방향 반복자
+// 3. 스트링 반복자
+// 4. 이동 반복자
+//
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+int main()
+{
+   string s = "2017. 5. 8. 1. 54";
+   
+
+   auto p = s.end();
+   
+   while(--p != s.begin())
+      cout << *p << ' ';
+   cout <<*p <<  endl;
+
+
+   for (auto i = s.begin(); i != s.end(); ++i)
+      cout << *i << ' ';
+   cout << endl;
+
+   save();
+
+}
+
+
+
+===========================================
+Mon May  8 14:04:41 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 5.8 월 (월56목56) - (10주 2)
+//
+// 책 p.262  -- 삽입반복자
+//
+//----------------------------------------------------
+//
+// 알고리즘은 반복자를 인자로 받는다.
+// 반복자는 반복자처럼 행동하는 모든 것들이다.
+// C++는 연산자 오버로딩으로 반복자의 행동을 하는 
+//            클래스를 얼마든지 만들 수 있다.
+// 이런 클래스를 반복자 어댑터라고 부른다.
+// 1. 삽입 반복자
+// 2. 역방향 반복자
+// 3. 스트링 반복자
+// 4. 이동 반복자
+//
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+int main()
+{
+   string s = "2017. 5. 8. 1. 54";
+   
+
+   for (auto i = s.rbegin(); i != s.rend(); ++i)
+      cout << *i << ' ';
+   cout << endl;
+
+   save();
+
+}
+
+
+
+===========================================
+Mon May  8 14:07:25 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 5.8 월 (월56목56) - (10주 2)
+//
+// 책 p.262  -- 삽입반복자
+//
+//----------------------------------------------------
+//
+// 알고리즘은 반복자를 인자로 받는다.
+// 반복자는 반복자처럼 행동하는 모든 것들이다.
+// C++는 연산자 오버로딩으로 반복자의 행동을 하는 
+//            클래스를 얼마든지 만들 수 있다.
+// 이런 클래스를 반복자 어댑터라고 부른다.
+// 1. 삽입 반복자
+// 2. 역방향 반복자
+// 3. 스트링 반복자
+// 4. 이동 반복자
+//
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include "save.h"
+using namespace std;
+
+// 역방향 반복자
+
+int main()
+{
+   string s = "2017. 5. 8. 1. 54";
+   
+
+   for (auto i = s.rbegin(); i != s.rend(); ++i)
+      cout << *i << ' ';
+   cout << endl;
+
+   save();
+
+}
+
+
+
+===========================================
+Mon May  8 14:38:08 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 5.8 월 (월56목56) - (10주 2)
+//
+// 책 p.262  -- 삽입반복자
+//
+//----------------------------------------------------
+//
+// 알고리즘은 반복자를 인자로 받는다.
+// 반복자는 반복자처럼 행동하는 모든 것들이다.
+// C++는 연산자 오버로딩으로 반복자의 행동을 하는 
+//            클래스를 얼마든지 만들 수 있다.
+// 이런 클래스를 반복자 어댑터라고 부른다.
+// 1. 삽입 반복자
+// 2. 역방향 반복자
+// 3. 스트링 반복자
+// 4. 이동 반복자
+//
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+#include "save.h"
+using namespace std;
+
+// stream iterator
+// 키보드에서 단어를 입력받아  합계를 출력하라.
+
+
+int main()
+{
+   vector<int> v{ 1,2,3,4,5,6,7,8,9 };
+
+   // v에서 3의 배수를 지워주세요.
+   // remove_if()를 사용합니다.
+
+   remove_if(v.begin(), v.end(), [](int a) {
+      return (a % 3 == 0);
+   });
+
+   for (int d : v)
+      cout << d << ' ';
+   cout << endl;
+
+   save();
+
+}
+
+
+
+===========================================
+Mon May  8 14:47:29 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 5.8 월 (월56목56) - (10주 2)
+//
+// 책 p.262  -- 삽입반복자
+//
+//----------------------------------------------------
+//
+// 알고리즘은 반복자를 인자로 받는다.
+// 반복자는 반복자처럼 행동하는 모든 것들이다.
+// C++는 연산자 오버로딩으로 반복자의 행동을 하는 
+//            클래스를 얼마든지 만들 수 있다.
+// 이런 클래스를 반복자 어댑터라고 부른다.
+// 1. 삽입 반복자
+// 2. 역방향 반복자
+// 3. 스트링 반복자
+// 4. 이동 반복자
+//
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <vector>
+#include <algorithm>
+#include <iterator>
+#include "save.h"
+using namespace std;
+
+// stream iterator
+// 키보드에서 단어를 입력받아  합계를 출력하라.
+
+
+int main()
+{
+   vector<int> v{ 1,2,3,4,5,6,7,8,9 };
+
+   // v에서 3의 배수를 지워주세요.
+   // remove_if()를 사용합니다.
+
+   auto p = remove_if(v.begin(), v.end(), [](int a) {
+      return (a % 3 == 0);
+   });                                 // 새로운 end위치를 반환한다.
+
+   v.erase(p, v.end());            // 실제 삭제
+
+   for (int d : v)
+      cout << d << ' ';
+   cout << endl;
+   cout << "3의 배수를 지운 후 " << v.size() << endl;
+
+   save();
+
+}
+
+
+
+===========================================
+Mon May  8 15:00:11 2017
+===========================================
+
+
+//----------------------------------------------------
+// 2017. 1 STL 5.8 월 (월56목56) - (10주 2)
+//
+// 책 p.262  -- 삽입반복자
+//
+//----------------------------------------------------
+//
+// 알고리즘은 반복자를 인자로 받는다.
+// 반복자는 반복자처럼 행동하는 모든 것들이다.
+// C++는 연산자 오버로딩으로 반복자의 행동을 하는 
+//            클래스를 얼마든지 만들 수 있다.
+// 이런 클래스를 반복자 어댑터라고 부른다.
+// 1. 삽입 반복자
+// 2. 역방향 반복자
+// 3. 스트링 반복자
+// 4. 이동 반복자
+//
+//----------------------------------------------------
+#include <iostream>
+#include <string>
+#include <set>
+#include <algorithm>
+#include <iterator>
+#include <vector>
+#include "save.h"
+using namespace std;
+
+// stream iterator
+// 키보드에서 단어를 입력받아  합계를 출력하라.
+
+
+int main()
+{
+   set<int> s{ 1,2,3,4,5,6,7,8,9 };
+
+   // s에서 홀수를 지워주세요.
+   // 우회해서 vector로 복사한뒤 제거 그후 set에 다시 집어넣는다.
+   vector<int> v(s.begin(), s.end());
+   auto p = remove_if(v.begin(), v.end(), [](int a){
+      return a & 1;
+   });
+   v.erase(p, v.end());
+   s.clear();
+   s.insert(v.begin(), v.end());
+
+   for (int d : s)
+      cout << d << ' ';
+   cout << endl;
+   cout << "3의 배수를 지운 후 " << s.size() << endl;
+
+   save();
+
+}
+
+
+
+===========================================
+Mon May  8 15:08:20 2017
+===========================================
+
+
+//---------------------------------------------------------------------------------
+// 2017. 1 STL 5.8 월 (월56목56) - (10주 2)
+//
+// 7장  -- 책 p.307
+//
+//---------------------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include "save.h"
+using namespace std;
+
+// 책 p.307 표 7-1, 모든 컨테이너의 공통 동작
+// 1. ContType c 필요      기본생성자, 어떤요소도 갖지 않는 빈 컨테이너를 생성
+// 2. ContType c(c2)         복사생성자
+// 3. ContType c = c2      
+// 4. ContType c(beg,end);
+
+int main()
+{
+   vector<int> c;                                    // 1.
+//   vector<int> c(c2);                                 // 2. 
+//   vector<int> c = c2;                              // 3.
+//   vector<int> c(c2.begin(), c2.end());            // 4.
+
+
+   save();
+}
+
+
+
+===========================================
+Mon May  8 15:16:40 2017
+===========================================
+
+
+//---------------------------------------------------------------------------------
+// 2017. 1 STL 5.8 월 (월56목56) - (10주 2)
+//
+// 7장  -- 책 p.307
+//
+//---------------------------------------------------------------------------------
+#include <iostream>
+#include <vector>
+#include <fstream>
+#include <iterator>
+#include "save.h"
+using namespace std;
+
+// 책 p.307 표 7-1, 모든 컨테이너의 공통 동작
+// 1. ContType c 필요      기본생성자, 어떤요소도 갖지 않는 빈 컨테이너를 생성
+// 2. ContType c(c2)         복사생성자
+// 3. ContType c = c2      
+// 4. ContType c(beg,end)
+// 5. ContType c(initlist)
+
+int main()
+{
+
+
+
+
+==============================
+Thu May 11 13:42:21 2017
+==============================
+
+
+/////////////////////////////////////
+// <11주 1>
+
+#include <set>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <iterator>
+#include <fstream>
+#include "save.h"
+
+using namespace std;
+// 7장 STL 컨테이너
+
+int main()
+{
+	// p307 표 7-1 모든 컨테이너의 공통 동작
+	// ContType c     필요		기본생성자. 어떤 요소도 갖지 않는 빈 컨테이너 생성
+	// ContType c(c2)			복사생성자.
+	// ContType c = c2			복사생성자.
+	// ContType c(beg, end);	
+	// ContType c(initlist) 초기화자목록으로 컨테이너를 만들 수 있다.
+	// ContType c = initlist 쓸수 있다.
+	// ContType c initlist 
+	// c.~ContType()		할 수 있다면 모든 요소를 삭제하고 메모리를 풀어줌
+	// c1 == c2				c1과 c2가 같은지 반환	
+	vector<int> v1({1, 2, 3, 4, 5, 6, 7, 8, 9, 10});
+	vector<int> v2({ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 });
+	
+	cout << boolalpha <<  (v1 < v2) << endl;
+	save();
+}
+
+
+
+==============================
+Thu May 11 13:44:23 2017
+==============================
+
+
+/////////////////////////////////////
+// <11주 1>
+
+#include <set>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#include <string>
+#include <iterator>
+#include <fstream>
+#include "save.h"
+
+using namespace std;
+// 7장 STL 컨테이너
+
+int main()
+{
+	// p307 표 7-1 모든 컨테이너의 공통 동작
+	// ContType c     필요		기본생성자. 어떤 요소도 갖지 않는 빈 컨테이너 생성
+	// ContType c(c2)			복사생성자.
+	// ContType c = c2			복사생성자.
+	// ContType c(beg, end);	
+	// ContType c(initlist) 초기화자목록으로 컨테이너를 만들 수 있다.
+	// ContType c = initlist 쓸수 있다.
+	// ContType c initlist 
+	// c.~ContType()		할 수 있다면 모든 요소를 삭제하고 메모리를 풀어줌
+	// c1 == c2				c1과 c2가 같은지 반환	
+	// c = initlist
+	vector<int> v1({1, 2, 3, 4, 5});
+	v1 = { 3, 4, 5 };
+	
+	cout << v1.size() << endl;
+	cout << v1.capacity() << endl;
+	save();
+}
+
+
+
+==============================
+Thu May 11 14:10:53 2017
+==============================
+
+
+//-----------------------------------
+// <11주 1>
+// 7.1.3 컨테이너 형(type)
+// 모든 컨테이너는 다음과 같은 공통 자료형을 제공한다.
+//		size_type
+//		difference_type
+//		value_type
+//		reference
+//		const_reference
+//		iterator
+//		const_iterator
+//		pointer
+//		const_pointer
+//-----------------------------------
+#include <vector>
+#include <iostream>
+#include <string>
+#include <iterator>
+#include "save.h"
+
+using namespace std;
+
+template <class T>
+void shift(vector<T>& v);
+
+int main()
+{
+	vector<int> v({1, 2, 3, 4, 5});
+	vector<string> s{"2017년", "5월", "11일"};
+	// 컨테이너를 인자로 받아 그 원소의 값을 왼쪽으로 이동하는
+	// shift()라는 함수를 작성해보라.
+	// shift 함수는 어떤 자료형일때도 돌아가도록 프로그램
+	shift(v);
+	shift(s);
+	// v를 출력하면 2, 3, 4, 5, 1이 출력되어야 한다.
+	for (auto d : v)
+		cout << d << " ";
+	for (auto d : s)
+		cout << d << " ";
+	save();
+}
+
+template <class T>
+void shift(vector<T>& v)
+{
+	T a = v[0];
+
+	for (int i = 0; i < v.size() - 1; ++i)
+	{
+		v[i] = v[i + 1];
+	}
+	v[v.size() - 1] = a;
+};
+
+
+==============================
+Thu May 11 14:19:41 2017
+==============================
+
+
+//-----------------------------------
+// <11주 1>
+// 7.1.3 컨테이너 형(type)
+// 모든 컨테이너는 다음과 같은 공통 자료형을 제공한다.
+//		size_type
+//		difference_type
+//		value_type
+//		reference
+//		const_reference
+//		iterator
+//		const_iterator
+//		pointer
+//		const_pointer
+//-----------------------------------
+#include <vector>
+#include <iostream>
+#include <string>
+#include <iterator>
+#include "save.h"
+
+using namespace std;
+
+template <class Cont>
+void shift(Cont& v);
+
+int main()
+{
+	vector<int> v({1, 2, 3, 4, 5});
+	vector<string> s{"2017년", "5월", "11일"};
+	// 컨테이너를 인자로 받아 그 원소의 값을 왼쪽으로 이동하는
+	// shift()라는 함수를 작성해보라.
+	// shift 함수는 어떤 자료형일때도 돌아가도록 프로그램
+	shift(v);
+	shift(s);
+	// v를 출력하면 2, 3, 4, 5, 1이 출력되어야 한다.
+	for (auto d : v)
+		cout << d << " ";
+	for (auto d : s)
+		cout << d << " ";
+	save();
+}
+
+template <class Cont>
+void shift(Cont& v)
+{
+	Cont::value_type a = *v.begin();
+		
+	Cont::iterator lp = v.begin();
+	Cont::iterator rp = v.begin();
+	rp++;
+	for (int i = 0; i < v.size() - 1; ++i)
+		*lp = *rp++;
+	*lp = a;
+};
+
+
+==============================
+Thu May 11 14:42:25 2017
+==============================
+
+
+//-----------------------------------
+// <11주 1>
+// 7.1.3 컨테이너 형(type)
+// 모든 컨테이너는 다음과 같은 공통 자료형을 제공한다.
+//		size_type
+//		difference_type
+//		value_type
+//		reference
+//		const_reference
+//		iterator
+//		const_iterator
+//		pointer
+//		const_pointer
+//	7.2 array
+//		fail(), swap()
+//  7.3 vector
+//		emplace_back()
+//-----------------------------------
+#include <vector>
+#include <iostream>
+#include <array>
+#include <string>
+#include <iterator>
+#include "save.h"
+
+
+using namespace std;
+
+class Model {
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+	Model(const Model&) { cout << "복  사 생성자" << endl; }
+	Model(Model&&) { cout << "이  동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+};
+
+int main()
+{
+	array<int, 10> a;
+	a.fill(333);	// 전체메모리를 333으로 채워주자
+	
+	save();
+}
+
+
+
+
+==============================
+Thu May 11 14:48:00 2017
+==============================
+
+
+//-----------------------------------
+// <11주 1>
+// 7.1.3 컨테이너 형(type)
+// 모든 컨테이너는 다음과 같은 공통 자료형을 제공한다.
+//		size_type
+//		difference_type
+//		value_type
+//		reference
+//		const_reference
+//		iterator
+//		const_iterator
+//		pointer
+//		const_pointer
+//	7.2 array
+//		fail(), swap()
+//  7.3 vector
+//		emplace_back()
+//-----------------------------------
+#include <vector>
+#include <iostream>
+#include <array>
+#include <string>
+#include <iterator>
+#include "save.h"
+
+
+using namespace std;
+
+class Model {
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+	Model(const Model&) { cout << "복  사 생성자" << endl; }
+	Model(Model&&) { cout << "이  동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+};
+
+int main()
+{
+	array<int, 10> a;
+	a.fill(333);	// 전체메모리를 333으로 채워주자
+
+	array<int, 10> b;	// 쓰레기 값으로 채워져있음
+
+	swap(a, b);
+	// array의 swap은 다르다. p316 *주소교환을 하는 것이 아니다.
+	for (int d : a)
+		cout << d <<endl;
+	save();
+}
+
+
+
+
+==============================
+Thu May 11 14:49:59 2017
+==============================
+
+
+//-----------------------------------
+// <11주 1>
+// 7.1.3 컨테이너 형(type)
+// 모든 컨테이너는 다음과 같은 공통 자료형을 제공한다.
+//		size_type
+//		difference_type
+//		value_type
+//		reference
+//		const_reference
+//		iterator
+//		const_iterator
+//		pointer
+//		const_pointer
+//	7.2 array
+//		fail(), swap()
+//  7.3 vector
+//		emplace_back()
+//-----------------------------------
+#include <vector>
+#include <iostream>
+#include <array>
+#include <string>
+#include <iterator>
+#include "save.h"
+
+
+using namespace std;
+
+class Model {
+	int n { 0 };
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+	Model(int n) : n(n) { cout << "int 생성자" << endl; }
+	Model(const Model&) { cout << "복  사 생성자" << endl; }
+	Model(Model&&) { cout << "이  동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+};
+
+int main()
+{
+	vector<Model> v;
+
+	v.push_back(Model(123));
+
+	save();
+}
+
+
+
+
+==============================
+Thu May 11 14:56:40 2017
+==============================
+
+
+//-----------------------------------
+// <11주 1>
+// 7.1.3 컨테이너 형(type)
+// 모든 컨테이너는 다음과 같은 공통 자료형을 제공한다.
+//		size_type
+//		difference_type
+//		value_type
+//		reference
+//		const_reference
+//		iterator
+//		const_iterator
+//		pointer
+//		const_pointer
+//	7.2 array
+//		fail(), swap()
+//  7.3 vector
+//		emplace_back()
+//-----------------------------------
+#include <vector>
+#include <iostream>
+#include <array>
+#include <string>
+#include <iterator>
+#include "save.h"
+
+
+using namespace std;
+
+class Model {
+	int n { 0 };
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+	Model(int n) : n(n) { cout << "int 생성자" << endl; }
+	Model(const Model&) { cout << "복  사 생성자" << endl; }
+	Model(Model&&) { cout << "이  동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+};
+
+int main()
+{
+	vector<Model> v;
+
+	Model a(123);
+	v.push_back(Model(a));// 컴파일러가 이름있는 객체이기때문에 함부로 이동생성자 못부름
+
+	save();
+}
+
+
+
+
+==============================
+Thu May 11 15:00:13 2017
+==============================
+
+
+//-----------------------------------
+// <11주 1>
+// 7.1.3 컨테이너 형(type)
+// 모든 컨테이너는 다음과 같은 공통 자료형을 제공한다.
+//		size_type
+//		difference_type
+//		value_type
+//		reference
+//		const_reference
+//		iterator
+//		const_iterator
+//		pointer
+//		const_pointer
+//	7.2 array
+//		fail(), swap()
+//  7.3 vector
+//		emplace_back()
+//-----------------------------------
+#include <vector>
+#include <iostream>
+#include <array>
+#include <string>
+#include <iterator>
+#include "save.h"
+
+
+using namespace std;
+
+class Model {
+	int n { 0 };
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+	Model(int n) : n(n) { cout << "int 생성자" << endl; }
+	Model(const Model&) { cout << "복  사 생성자" << endl; }
+	Model(Model&&) { cout << "이  동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+};
+
+int main()
+{
+	vector<Model> v;
+
+	v.emplace_back(333);
+	v.emplace_back(777);
+
+	save();
+}
+
+
+
+
+==============================
+Thu May 11 15:00:32 2017
+==============================
+
+
+//-----------------------------------
+// <11주 1>
+// 7.1.3 컨테이너 형(type)
+// 모든 컨테이너는 다음과 같은 공통 자료형을 제공한다.
+//		size_type
+//		difference_type
+//		value_type
+//		reference
+//		const_reference
+//		iterator
+//		const_iterator
+//		pointer
+//		const_pointer
+//	7.2 array
+//		fail(), swap()
+//  7.3 vector
+//		emplace_back()
+//-----------------------------------
+#include <vector>
+#include <iostream>
+#include <array>
+#include <string>
+#include <iterator>
+#include "save.h"
+
+
+using namespace std;
+
+class Model {
+	int n { 0 };
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+	Model(int n) : n(n) { cout << "int 생성자" << endl; }
+	Model(const Model&) { cout << "복  사 생성자" << endl; }
+	Model(Model&&) { cout << "이  동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+};
+
+int main()
+{
+	vector<Model> v;
+
+	v.reserve(10);
+	v.emplace_back(333);
+	v.emplace_back(777);
+
+	save();
+}
+
+
+
+
+==============================
+Thu May 11 15:03:20 2017
+==============================
+
+
+//-----------------------------------
+// <11주 1>
+// 7.1.3 컨테이너 형(type)
+// 모든 컨테이너는 다음과 같은 공통 자료형을 제공한다.
+//		size_type
+//		difference_type
+//		value_type
+//		reference
+//		const_reference
+//		iterator
+//		const_iterator
+//		pointer
+//		const_pointer
+//	7.2 array
+//		fail(), swap()
+//  7.3 vector
+//		emplace_back()
+//-----------------------------------
+#include <vector>
+#include <iostream>
+#include <array>
+#include <string>
+#include <iterator>
+#include "save.h"
+
+
+using namespace std;
+
+class Model {
+	int n { 0 };
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+	Model(int n) : n(n) { cout << "int 생성자" << endl; }
+	Model(const Model&) { cout << "복  사 생성자" << endl; }
+	Model(Model&&) { cout << "이  동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+};
+
+int main()
+{
+	vector<Model> v;
+	
+	// p333 c.emplace_back(args...);
+	v.reserve(10);
+	v.emplace_back(333);
+	v.emplace_back(777);
+
+	save();
+}
+
+
+
+
+==============================
+Thu May 11 15:09:31 2017
+==============================
+
+
+//-----------------------------------
+// <11주 1>
+// 7.1.3 컨테이너 형(type)
+// 모든 컨테이너는 다음과 같은 공통 자료형을 제공한다.
+//		size_type
+//		difference_type
+//		value_type
+//		reference
+//		const_reference
+//		iterator
+//		const_iterator
+//		pointer
+//		const_pointer
+//	7.2 array
+//		fail(), swap()
+//  7.3 vector
+//		emplace_back()
+//	7.5 List p350
+//		unique
+//		splice
+//		sort
+//		merge
+//-----------------------------------
+#include <vector>
+#include <iostream>
+#include <array>
+#include <list>
+#include <iterator>
+#include <algorithm>
+#include "save.h"
+
+
+using namespace std;
+
+class Model {
+	int n { 0 };
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+	Model(int n) : n(n) { cout << "int 생성자" << endl; }
+	Model(const Model&) { cout << "복  사 생성자" << endl; }
+	Model(Model&&) { cout << "이  동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+};
+
+int main()
+{
+	list<int> c{ 1, 3, 5, 7, 9, 2, 4, 6, 8 };
+
+	c.sort(); // list는 자기만의 정렬함수를 제공한다.
+
+	for (int d : c)
+		cout << d << " ";
+	cout << endl;
+
+	save();
+}
+
+
+
+
+==============================
+Thu May 11 15:17:25 2017
+==============================
+
+
+//-----------------------------------
+// <11주 1>
+// 7.1.3 컨테이너 형(type)
+// 모든 컨테이너는 다음과 같은 공통 자료형을 제공한다.
+//		size_type
+//		difference_type
+//		value_type
+//		reference
+//		const_reference
+//		iterator
+//		const_iterator
+//		pointer
+//		const_pointer
+//	7.2 array
+//		fail(), swap()
+//  7.3 vector
+//		emplace_back()
+//	7.5 List p350
+//		unique
+//		splice
+//		sort
+//		merge
+//-----------------------------------
+#include <vector>
+#include <iostream>
+#include <array>
+#include <list>
+#include <iterator>
+#include <algorithm>
+#include "save.h"
+
+
+using namespace std;
+
+class Model {
+	int n { 0 };
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+	Model(int n) : n(n) { cout << "int 생성자" << endl; }
+	Model(const Model&) { cout << "복  사 생성자" << endl; }
+	Model(Model&&) { cout << "이  동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+};
+
+int main()
+{
+	list<int> c{ 1, 3, 1, 5, 1, 7, 9, 3, 2, 3, 4, 6, 8 };
+
+	c.sort();
+	c.unique();	// 이 함수를 쓰려면 먼저 sort를 해주어야한다.
+
+	for (int d : c)
+		cout << d << " ";
+	cout << endl;
+
+	save();
+}
+
+
+
+
+==============================
+Mon May 15 13:52:59 2017
+==============================
+
+
+//-----------------------------------
+// <11주 1>
+//	7.5 List p350
+//		unique
+//		splice
+//		sort
+//		merge
+//-----------------------------------
+#include <vector>
+#include <iostream>
+#include <array>
+#include <list>
+#include <iterator>
+#include <algorithm>
+#include "save.h"
+
+
+using namespace std;
+
+class Model {
+	int n { 0 };
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+	Model(int n) : n(n) { cout << "int 생성자" << endl; }
+	Model(const Model&) { cout << "복  사 생성자" << endl; }
+	Model(Model&&) { cout << "이  동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+};
+
+int main()
+{
+	list<int> c1{ 1, 2, 3, 7 ,8 ,9 };
+	list<int> c2{ 4, 5, 6 };
+
+	auto p = find(c1.begin(), c1.end(), 7);
+
+	c1.splice(p, c2, c2.begin(), c2.end());
+
+	for (int d : c1)
+		cout << d << " ";
+	cout << endl;
+
+	//
+	save();
+}
+
+
+
+
+==============================
+Mon May 15 13:56:36 2017
+==============================
+
+
+//-----------------------------------
+// <11주 1>
+//	7.5 List p350
+//		merge
+//-----------------------------------
+#include <vector>
+#include <iostream>
+#include <array>
+#include <list>
+#include <iterator>
+#include <algorithm>
+#include "save.h"
+
+
+using namespace std;
+
+class Model {
+	int n { 0 };
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+	Model(int n) : n(n) { cout << "int 생성자" << endl; }
+	Model(const Model&) { cout << "복  사 생성자" << endl; }
+	Model(Model&&) { cout << "이  동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+};
+
+int main()
+{
+	list<int> c1{ 1, 2, 3, 7 ,8 ,9 };
+	list<int> c2{ 4, 5, 6 };
+
+	c1.merge(c2);
+
+	for (int d : c1)
+		cout << d << " ";
+	cout << endl;
+
+	//
+	save();
+}
+
+
+
+
+==============================
+Mon May 15 13:58:21 2017
+==============================
+
+
+//-----------------------------------
+// <11주 1>
+//	7.5 List p350
+//		merge
+//-----------------------------------
+#include <vector>
+#include <iostream>
+#include <array>
+#include <list>
+#include <iterator>
+#include <algorithm>
+#include "save.h"
+
+
+using namespace std;
+
+class Model {
+	int n { 0 };
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+	Model(int n) : n(n) { cout << "int 생성자" << endl; }
+	Model(const Model&) { cout << "복  사 생성자" << endl; }
+	Model(Model&&) { cout << "이  동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+};
+
+int main()
+{
+	list<int> c1{ 1, 2, 3, 7 ,8 ,9 };
+	list<int> c2{ 4, 5, 6 };
+
+	c2.merge(c1); // c1과 c2가 정렬이 되어있다면 정렬이 되고 아니라면 정렬이 안되게 합쳐진다.
+
+	for (int d : c1)
+		cout << d << " ";
+	cout << endl;
+
+	//
+	save();
+}
+
+
+
+
+==============================
+Mon May 15 13:59:16 2017
+==============================
+
+
+//-----------------------------------
+// <11주 1>
+//	7.5 List p350
+//		merge
+//-----------------------------------
+#include <vector>
+#include <iostream>
+#include <array>
+#include <list>
+#include <iterator>
+#include <algorithm>
+#include "save.h"
+
+
+using namespace std;
+
+class Model {
+	int n { 0 };
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+	Model(int n) : n(n) { cout << "int 생성자" << endl; }
+	Model(const Model&) { cout << "복  사 생성자" << endl; }
+	Model(Model&&) { cout << "이  동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+};
+
+int main()
+{
+	list<int> c1{ 1, 3, 5, 7, 9 };
+	list<int> c2{ 2, 4, 6, 8 };
+
+	c2.merge(c1); // c1과 c2가 정렬이 되어있다면 정렬이 되고 아니라면 정렬이 안되게 합쳐진다.
+
+	for (int d : c2)
+		cout << d << " ";
+	cout << endl;
+
+	//
+	save();
+}
+
+
+
+
+==============================
+Mon May 15 14:11:54 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.15
+// 7.7 set/multiset
+// 
+//-----------------------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include "save.h"
+
+
+using namespace std;
+
+class Model {
+	int n { 0 };
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+	Model(int n) : n(n) { cout << "int 생성자" << endl; }
+	Model(const Model&) { cout << "복  사 생성자" << endl; }
+	Model(Model&&) { cout << "이  동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+};
+
+class Great {
+public:
+	bool operator()(int a, int b) {
+		return a > b;
+	}
+};
+int main()
+{
+	set<int, Great> s{ 1, 3, 5, 2, 4 };
+
+	for (int d : s)
+		cout << d << ' ';
+	cout << endl;
+
+	save();
+}
+
+
+
+
+==============================
+Mon May 15 14:51:23 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.15
+// 7.7 set/multiset
+// p386
+// strict weak ordering
+// 1. x < y 가 참이 되면 y < x 는 거짓이다
+// 2. x < y 가 참이고 y < z 참이라면 x < z 참이다
+// 3. x < x 는 거짓이다.
+// - x < y 가 거짓이고 y < x 가 거짓이면 x == y 이다.
+//-----------------------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include "save.h"
+
+
+using namespace std;
+
+class Model {
+	int n { 0 };
+public:
+	Model() { cout << "디폴트 생성자" << endl; }
+	Model(int n) : n(n) { cout << "int 생성자" << endl; }
+	Model(const Model&) { cout << "복  사 생성자" << endl; }
+	Model(Model&&) { cout << "이  동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+};
+
+class Less {
+public:
+	bool operator()(int a, int b) {
+		cout << a << "<" << b << endl;
+		return a > b;
+	}
+};
+int main()
+{
+	set<int, Less> s;
+	
+	s.insert(1);
+	cout << "-------------" << endl;
+	s.insert(3);
+	cout << "-------------" << endl;
+	s.insert(2);
+	cout << "-------------" << endl;
+	s.insert(2);
+
+	save();
+}
+
+
+
+
+==============================
+Mon May 15 15:05:50 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.15
+// 7.7 set/multiset
+// p386
+// strict weak ordering
+// 1. x < y 가 참이 되면 y < x 는 거짓이다
+// 2. x < y 가 참이고 y < z 참이라면 x < z 참이다
+// 3. x < x 는 거짓이다.
+// - x < y 가 거짓이고 y < x 가 거짓이면 x == y 이다.
+//-----------------------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include "save.h"
+
+using namespace std;
+
+class Model {
+	int n ;
+public:
+	Model() :n{ -1 } {  }
+	Model(int n) : n(n) { }
+	int getN() const { return n; }
+};
+
+class Modelless {
+public:
+	bool operator()(const Model a, const Model b) {
+		return a.getN() < b.getN();
+	}
+};
+
+int main()
+{
+	set < Model, Modelless> s{ Model(1),Model(2), Model(3), Model(4), Model(5) };
+	
+	// 화면 출력이 1 2 3 4 5 가 되게 하라
+	for (const Model& d : s)
+		cout << d.getN() << endl;
+	cout << endl;
+	save();
+}
+
+
+
+
+==============================
+Thu May 18 13:40:45 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.15
+// 7.7 set/multiset
+// p386
+// strict weak ordering
+// 1. x < y 가 참이 되면 y < x 는 거짓이다
+// 2. x < y 가 참이고 y < z 참이라면 x < z 참이다
+// 3. x < x 는 거짓이다.
+// - x < y 가 거짓이고 y < x 가 거짓이면 x == y 이다.
+//-----------------------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include "save.h"
+
+using namespace std;
+
+class Model {
+	int n ;
+public:
+	Model() :n{ -1 } {  }
+	Model(int n) : n(n) { }
+	int getN() const { return n; }
+};
+
+class Modelless {
+public:
+	bool operator()(const Model a, const Model b) const {
+		return a.getN() < b.getN();
+	}
+};
+
+int main()
+{
+	set < Model, Modelless> s{ Model(1),Model(2), Model(3), Model(4), Model(5) };
+	
+	auto p = s.find(Model(3));
+	if (p == s.end())
+		cout << "못찾음" << endl;
+	else
+		cout << "찾음" << endl;
+	
+	// 화면 출력이 1 2 3 4 5 가 되게 하라
+	
+	for (const Model& d : s)
+		cout << d.getN() << endl;
+	cout << endl;
+	save();
+}
+
+
+
+
+==============================
+Thu May 18 14:05:47 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.15
+// 7.7 set/multiset
+// p386
+// strict weak ordering
+// 1. x < y 가 참이 되면 y < x 는 거짓이다
+// 2. x < y 가 참이고 y < z 참이라면 x < z 참이다
+// 3. x < x 는 거짓이다.
+// - x < y 가 거짓이고 y < x 가 거짓이면 x == y 이다.
+//-----------------------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ -1 } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+class Comp {	// 함수객체 - 함수를 오버로딩한 클래스
+public:
+	bool operator()(const Model& a, const Model& b) const {
+		return a.getN() < b.getN(); 
+	}
+};
+int main()
+{
+	multiset<Model, Comp> s;
+	s.emplace(2017);
+	s.emplace(5);
+	s.emplace(18);
+	s.emplace(37);
+	s.emplace(37);
+	s.emplace(37); // 불필요한 행동을 안하게 한다.
+
+	// s가 n 오름차순으로 정렬되도록 하라.
+	
+	for (const Model& d : s)	// const를 해줘야 필요없는 복사생성자가 안나온다.
+		cout << d.getN() << endl;
+
+	save();
+}
+
+
+
+
+==============================
+Thu May 18 14:06:23 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.15
+// 7.7 set/multiset
+// p386
+// strict weak ordering
+// 1. x < y 가 참이 되면 y < x 는 거짓이다
+// 2. x < y 가 참이고 y < z 참이라면 x < z 참이다
+// 3. x < x 는 거짓이다.
+// - x < y 가 거짓이고 y < x 가 거짓이면 x == y 이다.
+//-----------------------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ -1 } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+class Comp {	// 함수객체 - 함수를 오버로딩한 클래스
+public:
+	bool operator()(const Model& a, const Model& b) const {
+		return a.getN() < b.getN(); 
+	}
+};
+int main()
+{
+	multiset<Model, Comp> s;
+	s.emplace(2017);
+	//s.emplace(5);
+	//s.emplace(18);
+	//s.emplace(37);
+	//s.emplace(37);
+	//s.emplace(37); // 불필요한 행동을 안하게 한다.
+
+	// s가 n 오름차순으로 정렬되도록 하라.
+	
+	for (const Model& d : s)	// const를 해줘야 필요없는 복사생성자가 안나온다.
+		cout << d.getN() << endl;
+
+	save();
+}
+
+
+
+
+==============================
+Thu May 18 14:14:28 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.15
+// 7.7 set/multiset
+// p386
+// strict weak ordering
+// 1. x < y 가 참이 되면 y < x 는 거짓이다
+// 2. x < y 가 참이고 y < z 참이라면 x < z 참이다
+// 3. x < x 는 거짓이다.
+// - x < y 가 거짓이고 y < x 가 거짓이면 x == y 이다.
+//-----------------------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ -1 } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+class Comp {	// 함수객체 - 함수를 오버로딩한 클래스
+public:
+	bool operator()(const Model& a, const Model& b) const {
+		cout << a.getN() << "<" << b.getN() << endl;
+		return a.getN() < b.getN(); 
+	}
+};
+int main()
+{
+	multiset<Model, Comp> s;
+	s.emplace(2017);
+	s.emplace(5);
+	s.emplace(18);
+	s.emplace(37);
+	s.emplace(37);
+	//s.emplace(37); // 불필요한 행동을 안하게 한다.
+
+	// s가 n 오름차순으로 정렬되도록 하라.
+	
+	for (const Model& d : s)	// const를 해줘야 필요없는 복사생성자가 안나온다.
+		cout << d.getN() << endl;
+
+	save();
+}
+
+
+
+
+==============================
+Thu May 18 14:48:59 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.15
+// 7.7 set/multiset
+// p386
+// strict weak ordering
+// 1. x < y 가 참이 되면 y < x 는 거짓이다
+// 2. x < y 가 참이고 y < z 참이라면 x < z 참이다
+// 3. x < x 는 거짓이다.
+// - x < y 가 거짓이고 y < x 가 거짓이면 x == y 이다.
+//-----------------------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ -1 } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+class Comp {	// 함수객체 - 함수를 오버로딩한 클래스
+public:
+	bool operator()(const Model& a, const Model& b) const {
+		cout << a.getN() << "<" << b.getN() << endl;
+		return a.getN() < b.getN(); 
+	}
+};
+int main()
+{
+	multiset<Model, Comp> s;
+	s.emplace(2017);
+	s.emplace(5);
+	s.emplace(18);
+	s.emplace(37);
+	s.emplace(37);
+	//s.emplace(37); // 불필요한 행동을 안하게 한다.
+
+	// s가 n 오름차순으로 정렬되도록 하라.
+	cout << endl << endl;
+	cout << "---------------------------------" << endl;
+	for (const Model& d : s)	// const를 해줘야 필요없는 복사생성자가 안나온다.
+		cout << d.getN() << ' ';
+	cout << endl;
+	cout << "---------------------------------" << endl;
+	cout << endl;
+	// set을 이용한느 목적은 ? 빨리 찾기 위해서 
+	// find(37);		// O(n) 선형 알고리즘 탐색시간을 n/2 
+	// 전용 찾기 함수를 이용한다.
+	// p373 
+	//		.count	똑같은거에 갯수셀 때 좋음
+	//		.find	주소를 반환해서 하나를 찾을 때 좋음 
+	//		.lower_bound
+	//		.upper_bound
+	//		.equal_range	// 끼어 넣을 자리를 찾을때 사용된다.
+
+
+	//  s에 Model(37)이 몇 개나 있니 ?
+	cout << "---------------------------------" << endl;
+	cout << s.count(Model(37)) << endl;
+	cout << "---------------------------------" << endl;
+
+
+	//	s에 Model(37)이라고 하는 원소가 있나?
+	cout << "---------------------------------" << endl;
+	if (s.count(37))
+		cout << "그래, 있어" << endl;
+	else
+		cout << "아니, 없어" << endl;
+	cout << "---------------------------------" << endl;
+	cout << "---------------------------------" << endl;
+	auto p = s.find(37);		// 찾은 위치가 return 
+	if (p != s.end())
+		cout << "찾았어" << endl;
+	else
+		cout << "못찾았어" << endl;
+	cout << "---------------------------------" << endl;
+	save();
+}
+
+
+
+
+==============================
+Thu May 18 14:52:58 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.15
+// 7.7 set/multiset
+// p386
+// strict weak ordering
+// 1. x < y 가 참이 되면 y < x 는 거짓이다
+// 2. x < y 가 참이고 y < z 참이라면 x < z 참이다
+// 3. x < x 는 거짓이다.
+// - x < y 가 거짓이고 y < x 가 거짓이면 x == y 이다.
+//-----------------------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ -1 } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+class Comp {	// 함수객체 - 함수를 오버로딩한 클래스
+public:
+	bool operator()(const Model& a, const Model& b) const {
+		cout << a.getN() << "<" << b.getN() << endl;
+		return a.getN() < b.getN(); 
+	}
+};
+int main()
+{
+	multiset<Model, Comp> s;
+	s.emplace(2017);
+	s.emplace(5);
+	s.emplace(18);
+	s.emplace(37);
+	s.emplace(37);
+	//s.emplace(37); // 불필요한 행동을 안하게 한다.
+
+	// s가 n 오름차순으로 정렬되도록 하라.
+	cout << endl << endl;
+	cout << "---------------------------------" << endl;
+	for (const Model& d : s)	// const를 해줘야 필요없는 복사생성자가 안나온다.
+		cout << d.getN() << ' ';
+	cout << endl;
+	cout << "---------------------------------" << endl;
+	cout << endl;
+	// set을 이용한느 목적은 ? 빨리 찾기 위해서 
+	// find(37);		// O(n) 선형 알고리즘 탐색시간을 n/2 
+	// 전용 찾기 함수를 이용한다.
+	// p373 
+	//		.count	똑같은거에 갯수셀 때 좋음
+	//		.find	주소를 반환해서 하나를 찾을 때 좋음 
+	//		.lower_bound
+	//		.upper_bound
+	//		.equal_range	// 끼어 넣을 자리를 찾을때 사용된다.
+
+
+	//  37이 어디부터 어디까지 있는지 알고 싶다.
+	auto p = s.equal_range(37);		// [beg, end)
+
+	// p로 37의 갯수도 셀 수 있다.
+	cout << endl;
+	cout << "-----------------------" << endl;
+	cout << "37의 갯수 " << distance(p.first, p.second) << endl;
+	cout << "-----------------------" << endl;
+	cout << endl;
+	// p로 37 전체를 삭제할 수 있다.
+	s.erase(p.first, p.second);
+
+	cout << endl << endl;
+	cout << "---------결과----------" << endl;
+	for (const Model& d : s)	// const를 해줘야 필요없는 복사생성자가 안나온다.
+		cout << d.getN() << ' ';
+	cout << endl;
+	cout << "-----------------------" << endl;
+	cout << endl;
+
+	save();
+}
+
+
+
+
+==============================
+Thu May 18 14:57:04 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.15
+// 7.7 set/multiset
+// p386
+// strict weak ordering
+// 1. x < y 가 참이 되면 y < x 는 거짓이다
+// 2. x < y 가 참이고 y < z 참이라면 x < z 참이다
+// 3. x < x 는 거짓이다.
+// - x < y 가 거짓이고 y < x 가 거짓이면 x == y 이다.
+//-----------------------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ -1 } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+class Comp {	// 함수객체 - 함수를 오버로딩한 클래스
+public:
+	bool operator()(const Model& a, const Model& b) const {
+		cout << a.getN() << "<" << b.getN() << endl;
+		return a.getN() < b.getN(); 
+	}
+};
+int main()
+{
+	multiset<Model, Comp> s;
+	s.emplace(2017);
+	s.emplace(5);
+	s.emplace(18);
+	s.emplace(37);
+	s.emplace(37);
+	s.emplace(37); 
+
+	// 숫자를 입력받아 s에 Model(숫자)가 존재한다면
+	// 지워주세요.
+	int n;
+	cout << "숫자를 입력하세요 : " << endl;
+	cin >> n; 
+	auto p = s.find(n);		// 찾은 위치가 return 
+	if (p != s.end())
+	{
+		cout << "찾았어" << endl;
+		s.erase(p);
+	}
+	else
+		cout << "못찾았어" << endl;
+	cout << "---------------------------------" << endl;
+
+	// s가 n 오름차순으로 정렬되도록 하라.
+	cout << endl << endl;
+	cout << "---------------------------------" << endl;
+	for (const Model& d : s)	// const를 해줘야 필요없는 복사생성자가 안나온다.
+		cout << d.getN() << ' ';
+	cout << endl;
+	cout << "---------------------------------" << endl;
+	cout << endl;
+
+
+	save();
+}
+
+
+
+
+==============================
+Thu May 18 15:00:31 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.15
+// 7.7 set/multiset
+// p386
+// strict weak ordering
+// 1. x < y 가 참이 되면 y < x 는 거짓이다
+// 2. x < y 가 참이고 y < z 참이라면 x < z 참이다
+// 3. x < x 는 거짓이다.
+// - x < y 가 거짓이고 y < x 가 거짓이면 x == y 이다.
+//-----------------------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ -1 } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+class Comp {	// 함수객체 - 함수를 오버로딩한 클래스
+public:
+	bool operator()(const Model& a, const Model& b) const {
+		cout << a.getN() << "<" << b.getN() << endl;
+		return a.getN() < b.getN(); 
+	}
+};
+int main()
+{
+	multiset<Model, Comp> s;
+	s.emplace(2017);
+	s.emplace(5);
+	s.emplace(18);
+	s.emplace(37);
+	s.emplace(37);
+	s.emplace(37); 
+
+	// 숫자를 입력받아 s에 Model(숫자)가 존재한다면
+	// 지워주세요.
+	while (true)
+	{
+		int num;
+		cout << "숫자를 입력하세요 : ";
+		cin >> num;
+		auto p = s.find(num);		// 찾은 위치가 return 
+		if (num == 0)
+			break;
+		if (p != s.end())
+		{
+			cout << "num을 지웠습니다." << endl;
+			s.erase(p);
+		}
+		else
+			cout << "num은 없습니다." << endl;
+		cout << "---------------------------------" << endl;
+	}
+	// s가 n 오름차순으로 정렬되도록 하라.
+	cout << endl << endl;
+	cout << "---------------------------------" << endl;
+	for (const Model& d : s)	// const를 해줘야 필요없는 복사생성자가 안나온다.
+		cout << d.getN() << ' ';
+	cout << endl;
+	cout << "---------------------------------" << endl;
+	cout << endl;
+
+
+	save();
+}
+
+
+
+
+==============================
+Thu May 18 15:17:32 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.18
+//
+// 7.9 
+//
+//-----------------------------------
+#include <iostream>
+#include <set>
+#include <algorithm>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ -1 } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+
+// 실행 시간에 다른 정렬기준을 갖는 set
+class Comp {		// Comp는 function object이다.
+	int sel;
+public:
+	Comp(int n) : sel(n) {}
+
+	bool operator()(int a, int b) {
+		if (sel == 0)
+			return a < b;
+		else
+			return a > b;
+	}
+};
+int main()
+{
+	set<int, Comp> s ( Comp(0) );
+	s.insert({ 1, 3, 5, 7, 9, 2, 4, 6, 8 });
+
+	set<int, Comp> s1( Comp(1) );
+	// s가 현재는 오름차순으로 정렬하고 있는데
+	// s1 = s 와 같은 할당연산을 통해 s1은 내림차순으로 정렬되면 좋겠다
+	s1.insert(s.begin(), s.end());
+	for (int d : s)
+		cout << d << ' ';
+	cout << endl;
+	for (int d : s1)
+		cout << d << ' ';
+	save();
+}
+
+
+
+
+==============================
+Mon May 22 13:54:21 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.18
+//
+// 7.9 
+//
+//-----------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <set>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ -1 } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+
+// 실행 시간에 다른 정렬기준을 갖는 set p382
+class Comp {		// Comp는 function object이다.
+	int sel;
+public:
+	Comp(int n) : sel(n) {}
+
+	bool operator()(int a, int b) {
+		if (sel == 0)
+			return a < b;
+		else
+			return a > b;
+	}
+};
+int main()
+{
+	unordered_set<int> s;
+
+	// 순서가 없다는 것을 확인해보자.
+	// s에 int를 하나씩 넣고 출력하는 과정을 반복해보자.
+	for (int i = 0; ;++i) {
+		cout << "현재 bucket의 수: " << s.bucket_count() << endl;
+		s.insert(i);
+
+		for (int d : s)
+			cout << d << ' ';
+		cout << endl;
+
+		int num;
+		cin >> num;
+		if (num == 0)
+			break;
+	}
+
+	
+
+	save();
+}
+
+
+
+
+==============================
+Mon May 22 14:07:56 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.18
+//
+// 7.9 
+//
+//-----------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <set>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ -1 } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+
+
+void print(const unordered_multiset<int>& s)
+{
+	for (int i = 0; i < s.bucket_count(); ++i) {
+		cout << "  bucket[" << i << "]:  ";
+		// 각 bucket의 원소들
+		for (auto b = s.begin(i); b != s.end(i); ++b)
+			cout << *b << "  ";
+		cout << endl;
+	}
+}
+int main()
+{
+	unordered_multiset<int> s{1, 2, 3, 4, 5, 6, 7, 3, 3, 3, 6, 6, 6 ,9 ,9 ,9 ,67};
+
+	// s의 메모리 구조를 화면에 출력하는 함수를 만들어 보자
+	print(s);
+	
+
+	
+
+	save();
+}
+
+
+
+
+==============================
+Mon May 22 14:08:00 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.18
+//
+// 7.9 
+//
+//-----------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <set>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ -1 } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+
+
+void print(const unordered_multiset<int>& s)
+{
+	for (int i = 0; i < s.bucket_count(); ++i) {
+		cout << "  bucket[" << i << "]:  ";
+		// 각 bucket의 원소들
+		for (auto b = s.begin(i); b != s.end(i); ++b)
+			cout << *b << "  ";
+		cout << endl;
+	}
+}
+int main()
+{
+	unordered_multiset<int> s{1, 2, 3, 4, 5, 6, 7, 3, 3, 3, 6, 6, 6,9,9,9,67};
+
+	// s의 메모리 구조를 화면에 출력하는 함수를 만들어 보자
+	print(s);
+	
+
+	
+
+	save();
+}
+
+
+
+
+==============================
+Mon May 22 14:35:22 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.18
+//
+// 7.9 
+//
+//-----------------------------------
+#include <iostream>
+#include <unordered_set>
+#include <set>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ -1 } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+
+class Hash {
+public:
+	int operator()(const Model& a) const {
+		return hash<int>()(a.getN()) ;
+	}
+};
+
+class Equal {
+public:
+	bool operator()(const Model& a, const Model& b) const {
+		return a.getN() == b.getN();
+	}
+};
+
+void print(const unordered_multiset<Model, Hash, Equal>& s)
+{
+	for (int i = 0; i < s.bucket_count(); ++i) {
+		cout << "  bucket[" << i << "]:  ";
+		// 각 bucket의 원소들
+		for (auto b = s.begin(i); b != s.end(i); ++b)
+			cout << b->getN() << "  ";
+		cout << endl;
+	}
+}
+
+
+int main()
+{
+	unordered_multiset<Model, Hash, Equal> s{ 1, 3, 5, 7, 9, 17 };
+
+	// s의 메모리 구조를 화면에 출력하는 함수를 만들어 보자
+	print(s);
+	
+
+	
+
+	save();
+}
+
+
+
+
+==============================
+Mon May 22 15:12:21 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.18
+//
+// 7.12 언제 무슨 컨테이너를 쓸 것인가 - 447p 
+//
+// 8장은 통째로 건너뜀 486p
+// 
+// 9장, STL 반복자
+// 
+// 9.2 반복자 카테고리 - 반복자는 성능에 따라 구분된다.
+//			입력반복자		출력반복자		
+//					순방향반복자
+//					양방향반복자
+//					랜덤반복자
+// 9.3 보조 함수들
+//		advance()
+//		next(), prev()
+//		distance()
+//
+// 9.4 반복자 어댑터
+// 9.5 반복자 특질
+//-----------------------------------
+#include <iostream>
+#include <iterator>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ -1 } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+
+
+int main()
+{
+	// 출력 반복자의 특징을 알아보려면
+	// 스트림반복자(반복자 어댑터)를 이용하는 것이 제일 좋겠다
+
+	auto p = ostream_iterator<char>(cout); // p를 출력반복자로 생각해도 되겠다 494~5p
+	
+	*p = 'A';
+	*p = 'B';
+	*p = 'C';
+	p++;
+	*p = 'D';
+
+	save();
+}
+
+
+
+
+==============================
+Thu May 25 13:48:47 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.18
+//
+// 7.12 언제 무슨 컨테이너를 쓸 것인가 - 447p 
+//
+// 8장은 통째로 건너뜀 486p
+// 
+// 9장, STL 반복자
+// 
+// 9.2 반복자 카테고리 - 반복자는 성능에 따라 구분된다.
+//			입력반복자		출력반복자		
+//					순방향반복자
+//					양방향반복자
+//					랜덤반복자
+// 9.3 보조 함수들
+//		advance()
+//		next(), prev()
+//		distance()
+//
+// 9.4 반복자 어댑터
+// 9.5 반복자 특질
+//-----------------------------------
+#include <iostream>
+#include <iterator>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ -1 } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+
+
+int main()
+{
+	// 출력 반복자 (494~5P)
+
+	ostream_iterator<char> p(cout); 
+	
+	(*p).operator= ('a');
+	p++;
+	*p = 'b';
+	p++;
+	*p = 'c';
+	p++;
+	*p = '\n';
+	save();
+}
+
+
+==============================
+Thu May 25 13:49:37 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.18
+//
+// 7.12 언제 무슨 컨테이너를 쓸 것인가 - 447p 
+//
+// 8장은 통째로 건너뜀 486p
+// 
+// 9장, STL 반복자
+// 
+// 9.2 반복자 카테고리 - 반복자는 성능에 따라 구분된다.
+//			입력반복자		출력반복자		
+//					순방향반복자
+//					양방향반복자
+//					랜덤반복자
+// 9.3 보조 함수들
+//		advance()
+//		next(), prev()
+//		distance()
+//
+// 9.4 반복자 어댑터
+// 9.5 반복자 특질
+//-----------------------------------
+#include <iostream>
+#include <iterator>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ -1 } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+
+
+int main()
+{
+	// 출력 반복자 (494~5P)
+
+	ostream_iterator<char> p(cout); 
+	
+	(*p).operator= ('a');
+	*p = 'b';
+	*p = 'c';
+	*p = '\n';
+	save();
+}
+
+
+==============================
+Thu May 25 13:50:27 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.18
+//
+// 7.12 언제 무슨 컨테이너를 쓸 것인가 - 447p 
+//
+// 8장은 통째로 건너뜀 486p
+// 
+// 9장, STL 반복자
+// 
+// 9.2 반복자 카테고리 - 반복자는 성능에 따라 구분된다.
+//			입력반복자		출력반복자		
+//					순방향반복자
+//					양방향반복자
+//					랜덤반복자
+// 9.3 보조 함수들
+//		advance()
+//		next(), prev()
+//		distance()
+//
+// 9.4 반복자 어댑터
+// 9.5 반복자 특질
+//-----------------------------------
+#include <iostream>
+#include <iterator>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ -1 } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+
+
+int main()
+{
+	// 출력 반복자 (494~5P)
+
+	ostream_iterator<char> p(cout); 
+	
+	p = 'a';
+	p = 'b';
+	p = 'c';
+	p = '\n';
+	save();
+}
+
+
+==============================
+Thu May 25 14:05:24 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.18
+//
+// 7.12 언제 무슨 컨테이너를 쓸 것인가 - 447p 
+//
+// 8장은 통째로 건너뜀 486p
+// 
+// 9장, STL 반복자
+// 
+// 9.2 반복자 카테고리 - 반복자는 성능에 따라 구분된다.
+//			입력반복자		출력반복자		
+//					순방향반복자
+//					양방향반복자
+//					랜덤반복자
+// 9.3 보조 함수들
+//		advance()
+//		next(), prev()
+//		distance()
+//
+// 9.4 반복자 어댑터
+// 9.5 반복자 특질
+//-----------------------------------
+#include <iostream>
+#include <iterator>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ -1 } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+
+// 컨테이너 MyCon을 만들어 주세요.
+// 이 컨테이너는 array를 흉내냅니다.
+template <class T,int Num>
+class MyCon {
+	T data[Num];		// [0][1][2][3][4][5][6][7][8][9]
+public:
+	T* begin() { return data; }
+	T* end() { return data + Num; }
+};
+
+int main()
+{
+	MyCon<int, 10> c;
+	
+//	for (int d : c)
+//		cout << d << endl;
+	for (auto d = c.begin(); d != c.end(); ++d)
+		cout << *d << endl;
+	save();
+}
+
+
+==============================
+Thu May 25 14:08:23 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.18
+//
+// 7.12 언제 무슨 컨테이너를 쓸 것인가 - 447p 
+//
+// 8장은 통째로 건너뜀 486p
+// 
+// 9장, STL 반복자
+// 
+// 9.2 반복자 카테고리 - 반복자는 성능에 따라 구분된다.
+//			입력반복자		출력반복자		
+//					순방향반복자
+//					양방향반복자
+//					랜덤반복자
+// 9.3 보조 함수들
+//		advance()
+//		next(), prev()
+//		distance()
+//
+// 9.4 반복자 어댑터
+// 9.5 반복자 특질
+//-----------------------------------
+#include <iostream>
+#include <iterator>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+
+// 컨테이너 MyCon을 만들어 주세요.
+// 이 컨테이너는 array를 흉내냅니다.
+template <class T,int Num>
+class MyCon {
+	T data[Num];		// [0][1][2][3][4][5][6][7][8][9]
+public:
+	T* begin() { return data; }
+	T* end() { return data + Num; }
+};
+ostream& operator<<(ostream& os, const Model& m)
+{
+	os << "출력연산자" << endl;
+	return os;
+}
+int main()
+{
+	MyCon<Model, 10> c;
+	
+//	for (int d : c)
+//		cout << d << endl;
+	for (auto d = c.begin(); d != c.end(); ++d)
+		cout << *d << endl;
+	save();
+}
+
+
+==============================
+Thu May 25 14:09:05 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.18
+//
+// 7.12 언제 무슨 컨테이너를 쓸 것인가 - 447p 
+//
+// 8장은 통째로 건너뜀 486p
+// 
+// 9장, STL 반복자
+// 
+// 9.2 반복자 카테고리 - 반복자는 성능에 따라 구분된다.
+//			입력반복자		출력반복자		
+//					순방향반복자
+//					양방향반복자
+//					랜덤반복자
+// 9.3 보조 함수들
+//		advance()
+//		next(), prev()
+//		distance()
+//
+// 9.4 반복자 어댑터
+// 9.5 반복자 특질
+//-----------------------------------
+#include <iostream>
+#include <iterator>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+
+// 컨테이너 MyCon을 만들어 주세요.
+// 이 컨테이너는 array를 흉내냅니다.
+template <class T,int Num>
+class MyCon {
+	T data[Num];		// [0][1][2][3][4][5][6][7][8][9]
+public:
+	T* begin() { return data; }
+	T* end() { return data + Num; }
+};
+ostream& operator<<(ostream& os, const Model& m)
+{
+	os << "출력연산자" << endl;
+	return os;
+}
+int main()
+{
+	MyCon<int, 10> c;
+	
+//	for (int d : c)
+//		cout << d << endl;
+	for (auto d = c.begin(); d != c.end(); ++d)
+		cout << *d << endl;
+	save();
+}
+
+
+==============================
+Thu May 25 14:09:20 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.18
+//
+// 7.12 언제 무슨 컨테이너를 쓸 것인가 - 447p 
+//
+// 8장은 통째로 건너뜀 486p
+// 
+// 9장, STL 반복자
+// 
+// 9.2 반복자 카테고리 - 반복자는 성능에 따라 구분된다.
+//			입력반복자		출력반복자		
+//					순방향반복자
+//					양방향반복자
+//					랜덤반복자
+// 9.3 보조 함수들
+//		advance()
+//		next(), prev()
+//		distance()
+//
+// 9.4 반복자 어댑터
+// 9.5 반복자 특질
+//-----------------------------------
+#include <iostream>
+#include <iterator>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+
+// 컨테이너 MyCon을 만들어 주세요.
+// 이 컨테이너는 array를 흉내냅니다.
+template <class T,int Num>
+class MyCon {
+	T data[Num];		// [0][1][2][3][4][5][6][7][8][9]
+public:
+	T* begin() { return data; }
+	T* end() { return data + Num; }
+};
+ostream& operator<<(ostream& os, const Model& m)
+{
+	os << "출력연산자" << endl;
+	return os;
+}
+int main()
+{
+	MyCon<int, 10> c;
+	
+	for (int d : c)
+		cout << d << endl;
+
+	save();
+}
+
+
+==============================
+Thu May 25 14:10:13 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.18
+//
+// 7.12 언제 무슨 컨테이너를 쓸 것인가 - 447p 
+//
+// 8장은 통째로 건너뜀 486p
+// 
+// 9장, STL 반복자
+// 
+// 9.2 반복자 카테고리 - 반복자는 성능에 따라 구분된다.
+//			입력반복자		출력반복자		
+//					순방향반복자
+//					양방향반복자
+//					랜덤반복자
+// 9.3 보조 함수들
+//		advance()
+//		next(), prev()
+//		distance()
+//
+// 9.4 반복자 어댑터
+// 9.5 반복자 특질
+//-----------------------------------
+#include <iostream>
+#include <iterator>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+
+// 컨테이너 MyCon을 만들어 주세요.
+// 이 컨테이너는 array를 흉내냅니다.
+template <class T,int Num>
+class MyCon {
+	T data[Num];		// [0][1][2][3][4][5][6][7][8][9]
+public:
+	T* begin() { return data; }
+	T* end() { return data + Num; }
+};
+ostream& operator<<(ostream& os, const Model& m)
+{
+	os << "출력연산자" << endl;
+	return os;
+}
+int main()
+{
+	MyCon<int, 10> c;		// 정수의 값을 0부터 9까지로 초기화 해주세요.
+	
+	for (int d : c)
+		cout << d << endl;
+
+	save();
+}
+
+
+==============================
+Thu May 25 14:11:06 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.18
+//
+// 7.12 언제 무슨 컨테이너를 쓸 것인가 - 447p 
+//
+// 8장은 통째로 건너뜀 486p
+// 
+// 9장, STL 반복자
+// 
+// 9.2 반복자 카테고리 - 반복자는 성능에 따라 구분된다.
+//			입력반복자		출력반복자		
+//					순방향반복자
+//					양방향반복자
+//					랜덤반복자
+// 9.3 보조 함수들
+//		advance()
+//		next(), prev()
+//		distance()
+//
+// 9.4 반복자 어댑터
+// 9.5 반복자 특질
+//-----------------------------------
+#include <iostream>
+#include <iterator>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+
+// 컨테이너 MyCon을 만들어 주세요.
+// 이 컨테이너는 array를 흉내냅니다.
+template <class T,int Num>
+class MyCon {
+	T data[Num];		// [0][1][2][3][4][5][6][7][8][9]
+public:
+	MyCon() {
+		for (int i = 0; i < Num; ++i)
+			data[i] = i;
+	}
+	T* begin() { return data; }
+	T* end() { return data + Num; }
+};
+ostream& operator<<(ostream& os, const Model& m)
+{
+	os << "출력연산자" << endl;
+	return os;
+}
+int main()
+{
+	MyCon<int, 10> c;		// 정수의 값을 0부터 9까지로 초기화 해주세요.
+	
+	for (int d : c)
+		cout << d << endl;
+
+	save();
+}
+
+
+==============================
+Thu May 25 14:18:21 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.18
+//
+// 7.12 언제 무슨 컨테이너를 쓸 것인가 - 447p 
+//
+// 8장은 통째로 건너뜀 486p
+// 
+// 9장, STL 반복자
+// 
+// 9.2 반복자 카테고리 - 반복자는 성능에 따라 구분된다.
+//			입력반복자		출력반복자		
+//					순방향반복자
+//					양방향반복자
+//					랜덤반복자
+// 9.3 보조 함수들
+//		advance()
+//		next(), prev()
+//		distance()
+//
+// 9.4 반복자 어댑터
+// 9.5 반복자 특질
+//-----------------------------------
+#include <iostream>
+#include <iterator>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+
+// 컨테이너 MyCon을 만들어 주세요.
+// 이 컨테이너는 array를 흉내냅니다.
+template <class T,int Num>
+class MyCon {
+	T data[Num];		// [0][1][2][3][4][5][6][7][8][9]
+public:
+	MyCon() {
+		for (int i = 0; i < Num; ++i)
+			data[i] = i;
+	}
+	T* begin() { return data; }
+	T* end() { return data + Num; }
+	size_t size() const { return Num; }
+	T operator[](int n) const { return data[n]; }	// 읽기
+	T& operator[](int n) { return data[n]; }			// 쓰기
+};
+ostream& operator<<(ostream& os, const Model& m)
+{
+	os << "출력연산자" << endl;
+	return os;
+}
+int main()
+{
+	MyCon<int, 10> c;		// 정수의 값을 0부터 9까지로 초기화 해주세요.
+	
+	for (int i = 0; i < c.size(); ++i)
+		cout << c[i] << ' ';
+	cout << endl;
+							
+	// 알고리즘 함수 rotate()로 MyCon의 내용을 바꿔보자
+
+	save();
+}
+
+
+==============================
+Thu May 25 14:32:39 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.18
+//
+// 7.12 언제 무슨 컨테이너를 쓸 것인가 - 447p 
+//
+// 8장은 통째로 건너뜀 486p
+// 
+// 9장, STL 반복자
+// 
+// 9.2 반복자 카테고리 - 반복자는 성능에 따라 구분된다.
+//			입력반복자		출력반복자		
+//					순방향반복자
+//					양방향반복자
+//					랜덤반복자
+// 9.3 보조 함수들
+//		advance()
+//		next(), prev()
+//		distance()
+//
+// 9.4 반복자 어댑터
+// 9.5 반복자 특질
+//-----------------------------------
+#include <iostream>
+#include <iterator>
+#include <algorithm>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+
+// 컨테이너 MyCon을 만들어 주세요.
+// 이 컨테이너는 array를 흉내냅니다.
+template <class T,int Num>
+class MyCon {
+	T data[Num];		// [0][1][2][3][4][5][6][7][8][9]
+public:
+	MyCon() {
+		for (int i = 0; i < Num; ++i)
+			data[i] = i;
+	}
+	T* begin() { return data; }
+	T* end() { return data + Num; }
+	size_t size() const { return Num; }
+	T operator[](int n) const { return data[n]; }	// 읽기
+	T& operator[](int n) { return data[n]; }			// 쓰기
+};
+ostream& operator<<(ostream& os, const Model& m)
+{
+	os << "출력연산자" << endl;
+	return os;
+}
+int main()
+{
+	MyCon<int, 10> c;		// 정수의 값을 0부터 9까지로 초기화 해주세요.
+	
+	for (int i = 0; i < c.size(); ++i)
+		cout << c[i] << ' ';
+	cout << endl;
+							
+	// 알고리즘 함수 rotate()로 MyCon의 내용을 바꿔보자
+	// [0][1][2][3][4][5][6][7][8][9]
+	rotate(c.begin(),c.begin() + 3 ,c.end());
+	for (int i = 0; i < c.size(); ++i)
+		cout << c[i] << ' ';
+	cout << endl;
+	save();
+}
+
+
+
+==============================
+Thu May 25 14:48:19 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.18
+//
+// 7.12 언제 무슨 컨테이너를 쓸 것인가 - 447p 
+//
+// 8장은 통째로 건너뜀 486p
+// 
+// 9장, STL 반복자
+// 
+// 9.2 반복자 카테고리 - 반복자는 성능에 따라 구분된다.
+//			입력반복자		출력반복자		
+//					순방향반복자
+//					양방향반복자
+//					랜덤반복자
+// 9.3 보조 함수들
+//		advance()
+//		next(), prev()
+//		distance()
+//
+// 9.4 반복자 어댑터
+// 9.5 반복자 특질
+//-----------------------------------
+#include <iostream>
+#include <iterator>
+#include <algorithm>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+
+// 컨테이너 MyCon을 만들어 주세요.
+// 이 컨테이너는 array를 흉내냅니다.
+template <class T,int Num>
+class MyCon {
+	T data[Num];		// [0][1][2][3][4][5][6][7][8][9]
+public:
+	MyCon() {
+		for (int i = 0; i < Num; ++i)
+			data[i] = i;
+	}
+	T* begin() { return data; }
+	T* end() { return data + Num; }
+	size_t size() const { return Num; }
+	T operator[](int n) const { return data[n]; }	// 읽기
+	T& operator[](int n) { return data[n]; }			// 쓰기
+
+	reverse_iterator <T*> rbegin() { return reverse_iterator <T*>(data + Num); }
+	reverse_iterator <T*> rend() { return reverse_iterator <T*>(data); }
+};
+ostream& operator<<(ostream& os, const Model& m)
+{
+	os << "출력연산자" << endl;
+	return os;
+}
+int main()
+{
+	MyCon<int, 10> c;		
+	
+	for (auto p = c.rbegin(); p != c.rend(); ++p)
+		cout << *p << ' ';
+	cout << endl;
+	
+	save();
+}
+
+
+==============================
+Thu May 25 14:54:48 2017
+==============================
+
+
+//-----------------------------------
+// 2017.05.18
+//
+// 7.12 언제 무슨 컨테이너를 쓸 것인가 - 447p 
+//
+// 8장은 통째로 건너뜀 486p
+// 
+// 9장, STL 반복자
+// 9.3 보조 함수들
+//		advance()
+//		next(), prev()
+//		distance()
+//
+// 9.4 반복자 어댑터
+// 9.5 반복자 특질
+//-----------------------------------
+#include <iostream>
+#include <iterator>
+#include <vector>
+#include <list>
+#include "save.h"
+
+using namespace std;
+
+
+class Model {
+	int n{ -1 };
+public:
+	Model() : n{ } { cout << "기본 생성자" << endl; }
+	Model(int n) : n{ n } { cout << "int 생성자" << endl; }
+	Model(const Model& other) : n{ other.n } { cout << "복사 생성자" << endl; }
+	Model(Model&& other) : n{ other.n } { cout << "이동 생성자" << endl; }
+
+	~Model() { cout << "소멸자" << endl; }
+
+	int getN() const { return n; }
+};
+
+
+
+int main()
+{
+	vector<int> v(20000);
+	list<int> l(20000);
+
+	// distance는 반복자간 거리를 계산하는 함수이다
+	cout << distance(v.begin(), v.end()) << endl;
+	cout << distance(l.begin(), l.end()) << endl;
+
+	save();
+}
+
+
+#include <iostream>
+#include <string>
+#include <algorithm>
+#include <vector>
+#include <iterator>
+#include <deque>
+#include "save.h"
+using namespace std;
+
+
+template<class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des);
+
+// 표준의 back_inserter를 다음과 같이 만들 수 있다 
+
+template<class Cont>
+class my_back_inserter 
+	: public iterator<output_iterator_tag, typename Cont::value_type, size_t, typename Cont::pointer, typename Cont::reference>
+{
+	Cont* cont;
+public:
+	my_back_inserter(Cont& v) {
+		cont = &v;
+	}
+
+	my_back_inserter& operator*() {
+		cout << "기본연산자" << endl;
+		return *this;
+	}
+};
+
+int main()
+{
+	vector<int> v{ 2, 5, 4, 1, 6, 3 };
+	vector<int> v1;
+
+	myCopy(v.begin(), v.end(), my_back_inserter<vector<int>>(v1));
+
+
+	for (int a : v1)
+		cout << a << ' ';
+	cout << endl;
+
+	save();
+
+}
+
+
+template<class InIter, class OutIter>
+void myCopy(InIter beg, InIter end, OutIter des)
+{
+	while (beg != end) {
+		*des = *beg;
+		des++;
+		beg++;
+	}// 값을 집어넣고 이동한다.
+}
